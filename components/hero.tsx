@@ -358,12 +358,7 @@ export default function Hero() {
             </motion.button>
 
             {/* Caption */}
-            <div className="absolute bottom-4 left-4">
-              <div className="bg-white/90 rounded-full px-4 py-2 inline-flex items-center gap-2 text-xs sm:text-sm shadow">
-                <span className="font-medium text-pink-600">Watch</span>
-                <span className="text-gray-600">Stories & highlights</span>
-              </div>
-            </div>
+          
           </motion.div>
         </motion.div>
 
