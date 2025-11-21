@@ -221,8 +221,6 @@
 //     </section>
 //   );
 // }
-
-
 "use client";
 
 import React, { useState } from "react";
@@ -232,7 +230,7 @@ import poster from "@/public/poster.png";
 const VIDEO_SRC = "/videos/sample-hero-video.mp4";
 
 export default function Hero() {
-  const [open, setOpen] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   const { scrollY } = useScroll();
   const zoom = useTransform(scrollY, [0, 400], [1, 1.12]);
@@ -244,8 +242,7 @@ export default function Hero() {
         background: "linear-gradient(180deg, #FFB8D4, #e7e1e3ff, #FFFFFF)",
       }}
     >
-
-      {/*  Falling Red Hearts Background */}
+      {/*  Falling Red Hearts */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <div
@@ -258,18 +255,17 @@ export default function Hero() {
               fontSize: `${18 + Math.random() * 14}px`,
             }}
           >
-            ❤️ 
+            ❤️
           </div>
         ))}
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10">
 
-        {/* HEADLINE */}
+       
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
@@ -281,17 +277,16 @@ export default function Hero() {
             Find clarity, heal together, and rediscover love with gentle guidance.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a
               href="#book"
-              className="inline-flex items-center rounded-full bg-black text-white px-6 py-3 text-sm sm:text-base shadow transition hover:scale-[.98]"
+              className="inline-flex items-center rounded-full bg-black text-white px-6 py-3 text-sm sm:text-base shadow hover:scale-[.98] hover:bg-pink-400 transition"
             >
               Book a Free Clarity Call
             </a>
-
             <a
               href="#learn"
-              className="inline-flex items-center rounded-full border border-gray-300 px-5 py-3 text-sm sm:text-base text-gray-700 transition hover:bg-pink-50"
+              className="inline-flex items-center rounded-full border bg-gray-100 border-gray-300 px-5 py-3 text-sm sm:text-base text-black-500 hover:bg-pink-400 transition"
             >
               Learn More
             </a>
@@ -303,110 +298,99 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
-          className="mt-6 sm:mt-8 flex justify-center"
+          className="mt-8 flex justify-center"
         >
           <div className="inline-flex items-center gap-2 bg-pink-50/60 border border-pink-100 text-xs sm:text-sm rounded-full px-4 py-2 shadow-sm">
             <span className="text-yellow-500">★★★★★</span>
-            <span className="text-gray-700"> Trusted By 100+ women To Heal Emotional Wounds And Build Unshakable Self-Worth…</span>
+            <span className="text-gray-700">
+              Trusted By 100+ women To Heal Emotional Wounds And Build Confidence…
+            </span>
           </div>
         </motion.div>
 
-        {/* VIDEO CARD */}
+        {/*  VIDEO CARD — PLAYS INSIDE SAME CARD */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex justify-center mt-14 sm:mt-16 md:mt-20"
+          className="flex justify-center mt-16 md:mt-20"
         >
           <motion.div
             style={{ scale: zoom }}
             className="
               relative w-full max-w-[1100px]
               h-[240px] sm:h-[340px] md:h-[440px] lg:h-[540px]
-              rounded-3xl overflow-hidden border border-pink-200 
-              bg-white shadow-[0_12px_40px_rgba(255,150,180,0.18)]
+              rounded-3xl overflow-hidden border border-pink-200 bg-white
+              shadow-[0_12px_40px_rgba(255,150,180,0.18)]
             "
           >
+
             {/* Glow */}
             <div
               className="absolute inset-0 pointer-events-none rounded-3xl"
-              style={{ boxShadow: "inset 0 0 80px rgba(255,185,200,0.28)" }}
+              style={{
+                boxShadow: "inset 0 0 80px rgba(255,185,200,0.28)",
+              }}
             />
 
-            {/* Poster */}
-            <img
-              src={poster.src}
-              alt="hero poster"
-              className="w-full h-full object-cover"
-            />
+            {/*  POSTER (hide when playing) */}
+            {!playing && (
+              <>
+                <img
+                  src={poster.src}
+                  alt="hero poster"
+                  className="w-full h-full object-cover"
+                />
 
-            {/* Play button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setOpen(true)}
-              className="
-                absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                flex items-center justify-center rounded-full bg-pink-500 
-                shadow-xl border-4 border-white/80
-                w-16 h-16 sm:w-20 sm:h-20
-              "
-            >
-              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </motion.button>
+                {/* PLAY BUTTON */}
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setPlaying(true)}
+                  className="
+                    absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                    w-16 h-16 sm:w-20 sm:h-20
+                    flex items-center justify-center rounded-full 
+                    bg-pink-500 border-4 border-white/80 shadow-xl
+                  "
+                >
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </motion.button>
+              </>
+            )}
 
-            {/* Caption */}
-          
+            {/* 🎬 VIDEO PLAYS INSIDE CARD */}
+            {playing && (
+              <>
+                {/* Close inside frame */}
+                <button
+                  onClick={() => setPlaying(false)}
+                  className="
+                    absolute top-4 right-4 z-50 w-10 h-10 
+                    bg-white/95 text-black rounded-full shadow-2xl 
+                    flex items-center justify-center hover:scale-110 transition
+                  "
+                >
+                  ✕
+                </button>
+
+                <video
+                  autoPlay
+                  controls
+                  className="w-full h-full object-cover"
+                >
+                  <source src={VIDEO_SRC} type="video/mp4" />
+                </video>
+              </>
+            )}
           </motion.div>
         </motion.div>
 
-        {/* VIDEO MODAL */}
-        {open && (
-          <div
-            className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-            onClick={() => setOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.25 }}
-              className="relative w-full max-w-[900px] h-[60vh] sm:h-[70vh] bg-black rounded-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-
-              {/* ✨ FIXED CLOSE BUTTON (Always Visible) */}
-              <button
-                onClick={() => setOpen(false)}
-                className="
-                  absolute top-4 right-4 
-                  z-[9999]
-                  w-10 h-10
-                  flex items-center justify-center
-                  text-black
-                  bg-white/95 
-                  rounded-full
-                  shadow-2xl
-                  hover:scale-110 transition
-                "
-              >
-                ✕
-              </button>
-
-              {/* Video */}
-              <video
-                autoPlay
-                controls
-                className="w-full h-full object-cover"
-                src={VIDEO_SRC}
-              />
-            </motion.div>
-          </div>
-        )}
       </div>
 
-      {/*  Falling Heart Animation CSS */}
+      {/*  Falling Heart Animation */}
       <style>{`
         @keyframes fallHearts {
           0% { transform: translateY(-50px) scale(0.7); opacity: 0; }
