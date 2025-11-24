@@ -221,6 +221,8 @@
 //     </section>
 //   );
 // }
+
+
 "use client";
 
 import React, { useState } from "react";
@@ -239,7 +241,7 @@ export default function Hero() {
     <section
       className="relative overflow-hidden pt-32 pb-20"
       style={{
-        background: "linear-gradient(180deg, #FFB8D4, #e7e1e3ff, #FFFFFF)",
+        background: "linear-gradient(180deg, #FFB8D4, #f8f5f6ff, #FFFFFF)",
       }}
     >
       {/*  Falling Red Hearts */}
@@ -320,8 +322,8 @@ export default function Hero() {
             className="
               relative w-full max-w-[1100px]
               h-[240px] sm:h-[340px] md:h-[440px] lg:h-[540px]
-              rounded-3xl overflow-hidden border border-pink-200 bg-white
-              shadow-[0_12px_40px_rgba(255,150,180,0.18)]
+              rounded-2xl overflow-hidden border border-pink-200 bg-white
+              shadow-[0_12px_40px_rgba(255,150,180,0.18)] 
             "
           >
 
@@ -351,7 +353,7 @@ export default function Hero() {
                     absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                     w-16 h-16 sm:w-20 sm:h-20
                     flex items-center justify-center rounded-full 
-                    bg-pink-500 border-4 border-white/80 shadow-xl
+                    bg-pink-500 border-4 border-white/80 shadow-xl 
                   "
                 >
                   <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -361,7 +363,7 @@ export default function Hero() {
               </>
             )}
 
-            {/* 🎬 VIDEO PLAYS INSIDE CARD */}
+            {/*  VIDEO PLAYS INSIDE CARD */}
             {playing && (
               <>
                 {/* Close inside frame */}
