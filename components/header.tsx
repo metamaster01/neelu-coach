@@ -90,23 +90,32 @@ export default function Header() {
                   "
                 >
                   <Link
-                    href="/services/counseling"
+                    href="/services/Relationship Coaching"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
                   >
-                    Counseling
+                    1:1 Relationship Coaching
                   </Link>
                   <Link
-                    href="/services/healing"
+                    href="/services/Couples Communication Program"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
                   >
-                    Healing Therapy
+                    Couples Communication Program
                   </Link>
                   <Link
-                    href="/services/workshops"
+                    href="/services/Emotional Resilience Sessions"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
                   >
-                    Workshops
+                    Emotional Resilience Sessions
                   </Link>
+
+                 <Link
+                    href="/services/Breakup Recovery Support"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
+                  >
+                    Breakup Recovery Support
+                  </Link>
+
+
                 </motion.div>
               )}
             </AnimatePresence>
@@ -170,14 +179,18 @@ export default function Header() {
                 Our Services
               </summary>
               <div className="ml-4 mt-2 flex flex-col gap-2">
-                <Link href="/services/counseling">
-                  <span className="text-gray-600 hover:text-pink-600 text-sm">Counseling</span>
+                <Link href="/services/1:1 Relationship Coaching">
+                  <span className="text-gray-600 hover:text-pink-600 text-sm">1:1 Relationship Coaching</span>
                 </Link>
-                <Link href="/services/healing">
-                  <span className="text-gray-600 hover:text-pink-600 text-sm">Healing Therapy</span>
+                <Link href="/services/Couples Communication Program">
+                  <span className="text-gray-600 hover:text-pink-600 text-sm">Couples Communication Program</span>
                 </Link>
-                <Link href="/services/workshops">
-                  <span className="text-gray-600 hover:text-pink-600 text-sm">Workshops</span>
+                <Link href="/services/Emotional Resilience Sessions">
+                  <span className="text-gray-600 hover:text-pink-600 text-sm">Emotional Resilience Sessions</span>
+                </Link>
+
+                <Link href="/services/Breakup Recovery Support">
+                  <span className="text-gray-600 hover:text-pink-600 text-sm">Breakup Recovery Support</span>
                 </Link>
               </div>
             </details>
