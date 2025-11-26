@@ -4,6 +4,8 @@ import MessageSection from "@/components/MessageSection"
 import Help from "@/components/help"
 import Services from "@/components/services";
 import AboutMe from "@/components/aboutme";
+import Podcast from "@/components/podcast";
+import {Testimonial } from "@/components/testimonial";
 
 export default function Home() {
   return (
@@ -14,6 +16,9 @@ export default function Home() {
       <Help/>
       <Services/>
       <AboutMe/>
+      <Podcast/>
+      <Testimonial/>
+
     </main>
   );
 }
