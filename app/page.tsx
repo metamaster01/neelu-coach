@@ -6,18 +6,23 @@ import Services from "@/components/services";
 import AboutMe from "@/components/aboutme";
 import Podcast from "@/components/podcast";
 import {Testimonial } from "@/components/testimonial";
+import Investment  from "@/components/investment";
+import BeforeAfter from "@/components/beforeafter";
+// import PhotoCarousel  from "@/components/photo-carousel";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       <Header />
-       <Hero/>
+      <Hero/>
       <MessageSection /> 
       <Help/>
       <Services/>
       <AboutMe/>
       <Podcast/>
       <Testimonial/>
+      <Investment/>
+      <BeforeAfter/>
 
     </main>
   );
