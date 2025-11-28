@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import img1 from "@/public/help1.png"; // replace with your image
-import img2 from "@/public/help2.png"; // replace with your image
-import img3 from "@/public/help3.png"; // replace with your image
+import img1 from "@/public/help1.png"; 
+import img2 from "@/public/help2.png"; 
+import img3 from "@/public/help3.png"; 
 
 export default function HelpSection() {
   return (
