@@ -28,7 +28,7 @@ export default function Header() {
           flex items-center justify-between
         "
       >
-        {/* LEFT: LOGO */}
+        
         <div
           className="text-white"
           style={{
@@ -42,7 +42,7 @@ export default function Header() {
           Neelu T.
         </div>
 
-        {/* ⭐ CENTER NAV — PERFECT ALIGNMENT */}
+       
         <div className="hidden md:flex items-center gap-14">
           {/* ABOUT */}
           <Link href="/about" className="relative group">
@@ -58,7 +58,7 @@ export default function Header() {
             ></span>
           </Link>
 
-          {/* OUR SERVICES (Hover + Click dropdown) */}
+          {/* OUR SERVICES  */}
           <div
             className="relative group cursor-pointer"
             onMouseEnter={() => setServiceOpen(true)}

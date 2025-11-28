@@ -45,7 +45,7 @@ export default function HelpSection() {
           What I Help You With
         </motion.h2>
 
-        {/* Subtitle */}
+        
         <motion.p
           variants={{
             hidden: { opacity: 0, y: 20 },
@@ -148,7 +148,7 @@ export default function HelpSection() {
         </motion.div>
       </motion.div>
 
-      {/* RESPONSIVE FIXES */}
+      
       <style>{`
         @media (max-width: 1024px) {
           section > div {
