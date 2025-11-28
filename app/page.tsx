@@ -4,20 +4,35 @@ import MessageSection from "@/components/MessageSection"
 import Help from "@/components/help"
 import Services from "@/components/services";
 import AboutMe from "@/components/aboutme";
+import HowItWorks from "@/components/howitworks";
 import Podcast from "@/components/podcast";
 import {Testimonial } from "@/components/testimonial";
+import Investment  from "@/components/investment";
+import BeforeAfter from "@/components/beforeafter";
+import Rebuild from "@/components/rebuild";
+import PhotoCarousel  from "@/components/photo-carousel"
+import RelationshipSection from "@/components/relationshipsection";
+import Footer from "@/components/footer";
+
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       <Header />
-       <Hero/>
+      <Hero/>
       <MessageSection /> 
       <Help/>
       <Services/>
       <AboutMe/>
+      <HowItWorks/>
       <Podcast/>
       <Testimonial/>
+      <Investment/>
+      <BeforeAfter/>
+      <Rebuild/>
+      <PhotoCarousel/>
+      <RelationshipSection/>
+      <Footer/>
 
     </main>
   );
