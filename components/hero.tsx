@@ -88,7 +88,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/*  VIDEO CARD — PLAYS INSIDE SAME CARD */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ export default function Hero() {
               }}
             />
 
-            {/*  POSTER (hide when playing) */}
+            {/*  POSTER */}
             {!playing && (
               <>
                 <img
@@ -122,7 +122,7 @@ export default function Hero() {
                   className="w-full h-full object-cover"
                 />
 
-                {/* PLAY BUTTON */}
+                
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9 }}
@@ -141,7 +141,7 @@ export default function Hero() {
               </>
             )}
 
-            {/*  VIDEO PLAYS INSIDE CARD */}
+            
             {playing && (
               <>
                 {/* Close inside frame */}
