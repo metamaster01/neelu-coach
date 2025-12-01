@@ -1,6 +1,4 @@
 
-
-
 "use client";
 
 import React, { useState } from "react";
@@ -35,7 +33,7 @@ export default function Hero() {
               fontSize: `${18 + Math.random() * 14}px`,
             }}
           >
-            ❤️    ❤️    ❤️
+            ❤️
           </div>
         ))}
       </div>
