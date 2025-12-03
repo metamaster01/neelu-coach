@@ -77,7 +77,7 @@ export default function HelpSection() {
               flex flex-col gap-4 cursor-pointer
             "
           >
-            <h3 className="text-xl font-semibold text-pink-600">
+            <h3 className="text-xl font-semibold text-green-500">
               Rebuilding Trust
             </h3>
             <p className="text-gray-700 text-sm">
@@ -103,7 +103,7 @@ export default function HelpSection() {
               flex flex-col gap-4 cursor-pointer
             "
           >
-            <h3 className="text-xl font-semibold text-pink-600">
+            <h3 className="text-xl font-semibold text-green-500">
               Rekindling Connection
             </h3>
             <p className="text-gray-700 text-sm">
@@ -129,7 +129,7 @@ export default function HelpSection() {
               flex flex-col gap-4 cursor-pointer
             "
           >
-            <h3 className="text-xl font-semibold text-pink-600">
+            <h3 className="text-xl font-semibold text-green-500">
               Communicating with Clarity
             </h3>
             <p className="text-gray-700 text-sm">
