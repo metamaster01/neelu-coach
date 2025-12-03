@@ -222,7 +222,7 @@ export default function Header() {
   const [serviceOpen, setServiceOpen] = useState(false);
 
   return (
-   <header className="fixed top-6 left-0 right-0 z-[999999999] flex justify-center ">
+   <header className="fixed top-6 left-0 right-0 z-[999999] flex justify-center ">
 
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
@@ -235,8 +235,9 @@ export default function Header() {
           borderRadius: "49.78px",
           borderWidth: "1.59px",
         }}
-        className="relative z-[9999999] border border-green-100/80 bg-[#5E936C]/40 backdrop-blur-md shadow-[0_4px_20px_rgba(255,150,180,0.25)] flex items-center justify-between">
-        {/* 🔹 LOGO – ab clickable home link */}
+        className="relative z-[999999] border border-green-100/80 bg-[#5E936C]/40 backdrop-blur-md shadow-[0_4px_20px_rgba(94,147,108,0.25)]
+ flex items-center justify-between">
+        {/* 🔹 LOGO */}
         <Link
           href="/"
           className="text-white"
@@ -251,7 +252,7 @@ export default function Header() {
           Neelu T.
         </Link>
 
-        {/* 🔹 DESKTOP NAV */}
+        
         <div className="hidden z-[999999] md:flex items-center gap-14">
         <Link href="/about" className="relative group text-white text-sm cursor-pointer">
   <span>About</span>
@@ -265,7 +266,7 @@ export default function Header() {
 </Link>
 
 
-          {/* OUR SERVICES */}
+          
           <div
             className="relative group cursor-pointer"
             onMouseEnter={() => setServiceOpen(true)}
@@ -284,7 +285,7 @@ export default function Header() {
               "
             ></span>
 
-            {/* DROPDOWN */}
+            
             <AnimatePresence>
               {serviceOpen && (
                 <motion.div
@@ -325,7 +326,7 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          {/* CONTACT */}
+          
           <Link href="/contact" className="relative group">
             <span className="text-white text-sm cursor-pointer">
               Contact
@@ -354,7 +355,7 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden p-2 rounded-lg bg-white/80 backdrop-blur border border-white/50"
         >
-          <svg className="w-6 h-6 text-pink-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {menuOpen ? (
               <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -364,7 +365,7 @@ export default function Header() {
         </button>
       </motion.nav>
 
-      {/* ⭐ MOBILE MENU */}
+      
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -377,12 +378,12 @@ export default function Header() {
             "
           >
             <Link href="/about" onClick={() => setMenuOpen(false)}>
-              <p className="py-2 text-gray-700 hover:text-pink-600">About</p>
+              <p className="py-2 text-gray-700 hover:text-green-600">About</p>
             </Link>
 
-            {/* Mobile dropdown */}
+            
             <details className="py-2">
-              <summary className="cursor-pointer text-gray-700 hover:text-pink-600">
+              <summary className="cursor-pointer text-gray-700 hover:text-green-600">
                 Our Services
               </summary>
               <div className="ml-4 mt-2 flex flex-col gap-2">
@@ -390,37 +391,37 @@ export default function Header() {
                   href="/"
                   onClick={() => setMenuOpen(false)}
                 >
-                  <span className="text-gray-600 hover:text-pink-600 text-sm">1:1 Relationship Coaching</span>
+                  <span className="text-gray-600 hover:text-green-600 text-sm">1:1 Relationship Coaching</span>
                 </Link>
                 <Link
                   href="/"
                   onClick={() => setMenuOpen(false)}
                 >
-                  <span className="text-gray-600 hover:text-pink-600 text-sm">Couples Communication Program</span>
+                  <span className="text-gray-600 hover:text-green-600 text-sm">Couples Communication Program</span>
                 </Link>
                 <Link
                   href="/"
                   onClick={() => setMenuOpen(false)}
                 >
-                  <span className="text-gray-600 hover:text-pink-600 text-sm">Emotional Resilience Sessions</span>
+                  <span className="text-gray-600 hover:text-green-600 text-sm">Emotional Resilience Sessions</span>
                 </Link>
                 <Link
                   href="/services/breakup-recovery-support"
                   onClick={() => setMenuOpen(false)}
                 >
-                  <span className="text-gray-600 hover:text-pink-600 text-sm">Breakup Recovery Support</span>
+                  <span className="text-gray-600 hover:text-green-600 text-sm">Breakup Recovery Support</span>
                 </Link>
               </div>
             </details>
 
             <Link href="/contact" onClick={() => setMenuOpen(false)}>
-              <p className="py-2 text-gray-700 hover:text-pink-600">Contact</p>
+              <p className="py-2 text-gray-700 hover:text-green-600">Contact</p>
             </Link>
 
-            {/* 🔹 MOBILE CALL BUTTON – yahan bhi tel: */}
+            
             <a
               href="tel:2068886959"
-              className="bg-pink-100 text-pink-700 rounded-full px-4 py-2 text-center mt-2 block font-semibold"
+              className="bg-green-100 text-green-700 rounded-full px-4 py-2 text-center mt-2 block font-semibold"
             >
               📞 206-888-6959
             </a>

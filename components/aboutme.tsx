@@ -27,7 +27,7 @@ export default function AboutMe() {
       );
     }, 35);
     return () => clearInterval(interval);
-  }, []); // 🔥 FIX ADDED HERE (DON'T REMOVE)
+  }, []); // 
 
   return (
     <section className="w-full flex justify-center px-4 py-12 md:py-16">

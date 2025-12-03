@@ -47,10 +47,10 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h1 className="text-[22px] sm:text-[40px] md:text-[52px] lg:text-[52px] font-bold text-black leading-tight text-center">
+          <h1 className="text-[22px] sm:text-[40px] md:text-[54px] lg:text-[52px] font-bold text-black leading-tight text-center">
   Feeling disconnected, overwhelmed, or emotionally exhausted in{" "}
   <span className="text-[#4A6F4F] relative inline-block">
-    your
+    your{" "}
     </span>
   <span className="text-[#4A6F4F] relative inline-block">
     relationship?
