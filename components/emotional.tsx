@@ -6,7 +6,7 @@ import girlImg from "@/public/emotional.png";
 
 export default function Emotional() {
   return (
-    <section className="w-full bg-[#7FB881] flex justify-center px-6 py-8">
+    <section className="w-full bg-[#73AF6F] flex justify-center px-6 py-8 md:py-14 mb-28">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -15,7 +15,7 @@ export default function Emotional() {
         className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
       >
        
-        <div className="flex flex-col gap-4 text-white">
+        <div className="flex flex-col gap-6 text-white">
           <motion.h2
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function Emotional() {
           <Image
             src={girlImg}
             alt="Emotional Healing"
-            className="rounded-3xl shadow-xl object-cover w-[90%] md:w-[85%] lg:w-[550px] lg:h-[445px] "
+            className="rounded-3xl shadow-xl object-cover w-[90%] md:w-[85%] lg:w-[550px] lg:h-[385px] "
           />
         </motion.div>
       </motion.div>
