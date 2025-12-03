@@ -235,7 +235,7 @@ export default function Header() {
           borderRadius: "49.78px",
           borderWidth: "1.59px",
         }}
-        className="relative z-[9999999] border border-pink-200/80 bg-[#F8AFC3]/80 backdrop-blur-md shadow-[0_4px_20px_rgba(255,150,180,0.25)] flex items-center justify-between">
+        className="relative z-[9999999] border border-green-100/80 bg-[#5E936C]/40 backdrop-blur-md shadow-[0_4px_20px_rgba(255,150,180,0.25)] flex items-center justify-between">
         {/* 🔹 LOGO – ab clickable home link */}
         <Link
           href="/"
@@ -293,30 +293,30 @@ export default function Header() {
                   exit={{ opacity: 0, y: -8 }}
                   className="
                     absolute left-0 mt-3 w-48 bg-white 
-                    rounded-xl shadow-lg border border-pink-100 z-[999999] py-2
+                    rounded-xl shadow-lg border border-green-100 z-[999999] py-2
                   "
                 >
                   <Link
                     href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
                   >
                     1:1 Relationship Coaching
                   </Link>
                   <Link
                     href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
                   >
                     Couples Communication Program
                   </Link>
                   <Link
                     href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
                   >
                     Emotional Resilience Sessions
                   </Link>
                   <Link
                     href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
                   >
                     Breakup Recovery Support
                   </Link>
@@ -343,7 +343,7 @@ export default function Header() {
         {/* 🔹 RIGHT PHONE BUTTON – ab <a href="tel:"> hai */}
         <a
           href="tel:2068886959"
-          className="hidden md:flex items-center bg-white text-pink-600 text-sm font-semibold px-5 py-2 rounded-full shadow"
+          className="hidden md:flex items-center bg-white text-green-600 text-sm font-semibold px-5 py-2 rounded-full shadow"
         >
           📞 206-888-6959
         </a>

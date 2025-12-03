@@ -1,5 +1,6 @@
 // import Header from "@/components/header";
 import Hero from "@/components/hero";
+import Feeling from "@/components/feelings";
 import MessageSection from "@/components/MessageSection"
 import Help from "@/components/help"
 import Services from "@/components/services";
@@ -20,6 +21,7 @@ export default function Home() {
     <main className="min-h-screen bg-white overflow-x-hidden">
       
       <Hero/>
+       <Feeling/>
       <MessageSection /> 
       <Help/>
       <Services/>

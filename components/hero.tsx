@@ -15,9 +15,9 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden  pt-32 pb-20"
+      className="relative overflow-hidden  pt-38 pb-20"
       style={{
-        background: "linear-gradient(180deg, #FFB8D4, #f8f5f6ff, #FFFFFF)",
+        background: "linear-gradient(180deg, #5E936C, #FFFFFF, #FFFFFF)",
       }}
     >
       {/*  Falling Red Hearts */}
@@ -33,7 +33,7 @@ export default function Hero() {
               fontSize: `${18 + Math.random() * 14}px`,
             }}
           >
-            ❤️
+            💚
           </div>
         ))}
       </div>
@@ -47,24 +47,37 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900">
-            Feeling disconnected in your <span className="text-pink-500">relationship?</span>
-          </h1>
+          <h1 className="text-[22px] sm:text-[40px] md:text-[52px] lg:text-[52px] font-bold text-black leading-tight text-center">
+  Feeling disconnected, overwhelmed, or emotionally exhausted in{" "}
+  <span className="text-[#4A6F4F] relative inline-block">
+    your
+    </span>
+  <span className="text-[#4A6F4F] relative inline-block">
+    relationship?
+    <span className="absolute -right-10 top-4 scale-[0.9]">
+      <svg width="42" height="42" viewBox="0 0 60 60" fill="none">
+        <path d="M5 15C20 10 35 10 55 5" stroke="#4A6F4F" strokeWidth="6" strokeLinecap="round"/>
+        <path d="M5 30C22 27 38 26 55 22" stroke="#4A6F4F" strokeWidth="6" strokeLinecap="round"/>
+        <path d="M5 45C23 42 39 40 55 35" stroke="#4A6F4F" strokeWidth="6" strokeLinecap="round"/>
+      </svg>
+    </span>
+  </span>
+</h1>
 
           <p className="mt-4 max-w-xl mx-auto text-sm sm:text-base text-gray-600">
-            Find clarity, heal together, and rediscover love with gentle guidance.
+            You’re not broken — you just need healing, clarity & support.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a
               href="#book"
-              className="inline-flex items-center rounded-full bg-black text-white px-6 py-3 text-sm sm:text-base shadow hover:scale-[.98] hover:bg-pink-400 transition"
+              className="inline-flex items-center rounded-full bg-black text-white px-6 py-3 text-sm sm:text-base shadow hover:scale-[.98] hover:bg-green-400 transition"
             >
               Book a Free Clarity Call
             </a>
             <a
               href="#learn"
-              className="inline-flex items-center rounded-full border bg-gray-100 border-gray-300 px-5 py-3 text-sm sm:text-base text-black-500 hover:bg-pink-400 transition"
+              className="inline-flex items-center rounded-full border bg-gray-100 border-gray-300 px-5 py-3 text-sm sm:text-base text-black-500 hover:bg-green-400 transition"
             >
               Learn More
             </a>
@@ -78,7 +91,7 @@ export default function Hero() {
           transition={{ delay: 0.7, duration: 0.5 }}
           className="mt-8 flex justify-center"
         >
-          <div className="inline-flex items-center gap-2 bg-pink-50/60 border border-pink-100 text-xs sm:text-sm rounded-full px-4 py-2 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-green-100/80 border border-green-100 text-xs sm:text-sm rounded-full px-4 py-2 shadow-sm">
             <span className="text-yellow-500">★★★★★</span>
             <span className="text-gray-700">
               Trusted By 100+ women To Heal Emotional Wounds And Build Confidence…
@@ -98,8 +111,8 @@ export default function Hero() {
             className="
               relative w-full max-w-[1100px]
               h-[240px] sm:h-[340px] md:h-[440px] lg:h-[540px]
-              rounded-2xl overflow-hidden border border-pink-200 bg-white
-              shadow-[0_12px_40px_rgba(255,150,180,0.18)] 
+              rounded-2xl overflow-hidden border border-green-200 bg-white
+              shadow-[0_12px_40px_rgba(94,147,108,0.28)] 
             "
           >
 
@@ -107,7 +120,7 @@ export default function Hero() {
             <div
               className="absolute inset-0  rounded-3xl"
               style={{
-                boxShadow: "inset 0 0 80px rgba(255,185,200,0.28)",
+                boxShadow: "inset 0 0 80px rgba(144, 224, 151, 0.28)",
               }}
             />
 
@@ -129,7 +142,7 @@ export default function Hero() {
                     absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                     w-16 h-16 sm:w-20 sm:h-20
                     flex items-center justify-center rounded-full 
-                    bg-pink-500 border-4 border-white/80 shadow-xl 
+                    bg-green-500 border-4 border-white/80 shadow-xl 
                   "
                 >
                   <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
