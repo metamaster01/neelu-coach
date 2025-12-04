@@ -1,4 +1,6 @@
 
+
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -25,7 +27,7 @@ export default function AboutMe() {
       );
     }, 35);
     return () => clearInterval(interval);
-  }, []);
+  }, []); // 
 
   return (
     <section className="w-full flex justify-center px-4 py-12 md:py-16">
@@ -36,15 +38,11 @@ export default function AboutMe() {
         transition={{ duration: 0.7 }}
         className="max-w-[1300px] w-full flex flex-col gap-10"
       >
-        {/* PAGE TITLE (CENTER ALIGNED) */}
         <h1 className="text-4xl md:text-5xl font-bold text-black text-center">
           About mee
         </h1>
 
-        {/* MAIN GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-
-          {/* IMAGE */}
           <div className="flex justify-center">
             <Image
               src={neeluImg}
@@ -53,20 +51,19 @@ export default function AboutMe() {
             />
           </div>
 
-          {/* RIGHT CONTENT WITH SCROLL ANIMATION */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-10 pr-2  text-center md:text-left md:text-left"
+            className="flex flex-col gap-10 pr-2 text-center md:text-left"
           >
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl  text-[#EC407A] leading-[1.05] mt-[-1]"
+              className="text-4xl md:text-6xl text-[#5E936C] leading-[1.05]"
             >
               Hello, I’m <br /> Neelu Taneja!
             </motion.h2>
@@ -76,7 +73,7 @@ export default function AboutMe() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               viewport={{ once: true }}
-              className="text-[#EC407AD1] font-semibold text-base md:text-lg leading-[1.05] "
+              className="text-[#5E936C] font-semibold text-base md:text-lg leading-[1.05]"
             >
               Your Relationship Clarity Coach
             </motion.p>
@@ -106,7 +103,7 @@ export default function AboutMe() {
 
             <a
               href="/about"
-              className="px-6 py-3 w-40 rounded-full bg-black text-white text-sm font-medium hover:bg-pink-500 transition mx-auto md:mx-0"
+              className="px-6 py-3 w-30 rounded-full bg-black text-white text-sm font-medium hover:bg-green-500 transition mx-auto md:mx-0"
             >
               Know more
             </a>
@@ -114,12 +111,11 @@ export default function AboutMe() {
             <Image
               src={achievementsImg}
               alt="Achievements"
-              className="w-[70%] md:w-[55%] mt-2 opacity-95 mx-auto md:mx-0 gap-6"
+              className="w-[70%] md:w-[55%] mt-2 opacity-95 mx-auto md:mx-0"
             />
           </motion.div>
         </div>
 
-        {/* COUNTER CARDS (UNCHANGED) */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,13 +127,9 @@ export default function AboutMe() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.07 }}
-              className="
-                bg-gradient-to-br from-pink-50 to-white
-                shadow rounded-xl py-6 flex flex-col items-center gap-2
-                cursor-pointer border border-pink-100 transition
-              "
+              className="bg-gradient-to-br from-green-50 to-white shadow rounded-xl py-6 flex flex-col items-center gap-2 cursor-pointer border border-green-100 transition"
             >
-              <h3 className="text-4xl md:text-5xl font-extrabold text-pink-500">
+              <h3 className="text-4xl md:text-5xl font-extrabold text-green-500">
                 {counts[i]}+
               </h3>
               <p className="text-gray-600 text-xs md:text-sm text-center leading-snug">
@@ -150,5 +142,3 @@ export default function AboutMe() {
     </section>
   );
 }
-
-

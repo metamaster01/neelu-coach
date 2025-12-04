@@ -139,7 +139,7 @@ import { motion } from "framer-motion";
 
 export default function LoveMessageSection() {
   return (
-    <section className="w-full flex justify-center bg-[#EC407A] overflow-hidden">
+    <section className="w-full flex justify-center bg-[#5E936C] overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
