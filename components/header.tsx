@@ -210,9 +210,8 @@
 // }
 
 
-
-
 "use client";
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -222,195 +221,157 @@ export default function Header() {
   const [serviceOpen, setServiceOpen] = useState(false);
 
   return (
-   <header className="fixed top-6 left-0 right-0 z-[999999] flex justify-center ">
-
+    <header className="fixed top-4 left-0 right-0 z-[99999] flex justify-center px-4">
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        style={{
-          width: "965px",
-          height: "67px",
-          padding: "11px 16px",
-          borderRadius: "49.78px",
-          borderWidth: "1.59px",
-        }}
-        className="relative z-[999999] border border-green-100/80 bg-[#5E936C]/40 backdrop-blur-md shadow-[0_4px_20px_rgba(94,147,108,0.25)]
- flex items-center justify-between">
-        {/* 🔹 LOGO */}
+        className="
+          w-full max-w-6xl 
+          border border-green-100/80 bg-[#5E936C]/40 
+          backdrop-blur-md shadow-[0_4px_20px_rgba(94,147,108,0.25)]
+          rounded-full px-5 py-3 flex items-center justify-between
+        "
+      >
+        {/* LOGO */}
         <Link
           href="/"
           className="text-white"
           style={{
             fontFamily: '"Patrick Hand", cursive',
             fontWeight: 700,
-            fontSize: "30.93px",
+            fontSize: "32px",
             lineHeight: "94%",
-            marginTop: "-4px",
           }}
         >
           Neelu T.
         </Link>
 
         
-        <div className="hidden z-[999999] md:flex items-center gap-14">
-        <Link href="/about" className="relative group text-white text-sm cursor-pointer">
-  <span>About</span>
-  <span
-    className="
-      absolute left-0 right-0 -bottom-1 h-[2px] bg-white
-      scale-x-0 group-hover:scale-x-100 
-      transition-all duration-300 origin-center
-    "
-  ></span>
-</Link>
+        <div className="hidden md:flex items-center gap-10">
+          {/* about */}
+          <Link href="/about" className="relative group text-white text-sm">
+            About
+            <span
+              className="
+                absolute left-1/2 -translate-x-1/2 -bottom-1 h-[2px] bg-white w-0
+                group-hover:w-full transition-all duration-300
+              "
+            ></span>
+          </Link>
 
-
-          
+          {/* SERVICES */}
           <div
-            className="relative group cursor-pointer"
+            className="relative group"
             onMouseEnter={() => setServiceOpen(true)}
             onMouseLeave={() => setServiceOpen(false)}
-            onClick={() => setServiceOpen(!serviceOpen)}
           >
-            <span className="text-white text-sm flex items-center gap-1">
+            <span className="text-white text-sm flex items-center gap-1 cursor-pointer">
               Our Services ▾
             </span>
 
             <span
               className="
-                absolute left-0 right-0 -bottom-1 h-[2px] bg-white
-                scale-x-0 group-hover:scale-x-100 
-                transition-all duration-300 origin-center
+                absolute left-1/2 -translate-x-1/2 -bottom-1 h-[2px] bg-white w-0
+                group-hover:w-full transition-all duration-300
               "
             ></span>
 
-            
             <AnimatePresence>
               {serviceOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: -8 }}
+                  initial={{ opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  className="
-                    absolute left-0 mt-3 w-48 bg-white 
-                    rounded-xl shadow-lg border border-green-100 z-[999999] py-2
-                  "
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-0 mt-3 w-56 bg-white text-green-700 rounded-xl shadow-xl border border-green-100 z-[99999] py-2"
                 >
-                  <Link
-                    href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                  >
-                    1:1 Relationship Coaching
-                  </Link>
-                  <Link
-                    href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                  >
-                    Couples Communication Program
-                  </Link>
-                  <Link
-                    href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                  >
-                    Emotional Resilience Sessions
-                  </Link>
-                  <Link
-                    href="/"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                  >
-                    Breakup Recovery Support
-                  </Link>
+                  {[
+                    "1:1 Relationship Coaching",
+                    "Couples Communication Program",
+                    "Emotional Resilience Sessions",
+                    "Breakup Recovery Support",
+                    "Trauma Recovery & Emotional Healing",
+                  ].map((item, i) => (
+                    <Link
+                      key={i}
+                      href="/services"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    >
+                      {item}
+                    </Link>
+                  ))}
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          
-          <Link href="/contact" className="relative group">
-            <span className="text-white text-sm cursor-pointer">
-              Contact
-            </span>
+          {/* contact */}
+          <Link href="/contact" className="relative group text-white text-sm">
+            Contact
             <span
               className="
-                absolute left-0 right-0 -bottom-1 h-[2px] bg-white
-                scale-x-0 group-hover:scale-x-100 
-                transition-all duration-300 origin-center
+                absolute left-1/2 -translate-x-1/2 -bottom-1 h-[2px] bg-white w-0
+                group-hover:w-full transition-all duration-300
               "
             ></span>
           </Link>
         </div>
 
-        {/* 🔹 RIGHT PHONE BUTTON – ab <a href="tel:"> hai */}
+        
         <a
           href="tel:2068886959"
-          className="hidden md:flex items-center bg-white text-green-600 text-sm font-semibold px-5 py-2 rounded-full shadow"
+          className="hidden md:flex items-center bg-white text-green-700 text-sm font-semibold px-5 py-2 rounded-full shadow"
         >
           📞 206-888-6959
         </a>
 
-        {/* MOBILE HAMBURGER */}
+        {/* MOBILE BURGER MENU */}
         <button
-          aria-label="menu"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-lg bg-white/80 backdrop-blur border border-white/50"
+          className="md:hidden p-2 rounded-lg bg-white/80 border border-white/30"
         >
-          <svg className="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-green-700" fill="none" viewBox="0 0 24 24">
             {menuOpen ? (
-              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path stroke="currentColor" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+              <path stroke="currentColor" strokeWidth="2" d="M4 8h16M4 16h16" />
             )}
           </svg>
         </button>
       </motion.nav>
 
-      
+      {/* MOBILE MENU DROPDOWN */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            exit={{ opacity: 0, y: -6 }}
             className="
-              absolute top-[82px] w-[90%] 
-              bg-white mx-auto rounded-2xl shadow-xl p-4 md:hidden
+              absolute top-[80px] w-[92%] bg-white rounded-2xl shadow-xl p-5 md:hidden
             "
           >
             <Link href="/about" onClick={() => setMenuOpen(false)}>
               <p className="py-2 text-gray-700 hover:text-green-600">About</p>
             </Link>
 
-            
-            <details className="py-2">
-              <summary className="cursor-pointer text-gray-700 hover:text-green-600">
+            <details>
+              <summary className="py-2 text-gray-700 hover:text-green-600 cursor-pointer">
                 Our Services
               </summary>
-              <div className="ml-4 mt-2 flex flex-col gap-2">
-                <Link
-                  href="/"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <span className="text-gray-600 hover:text-green-600 text-sm">1:1 Relationship Coaching</span>
-                </Link>
-                <Link
-                  href="/"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <span className="text-gray-600 hover:text-green-600 text-sm">Couples Communication Program</span>
-                </Link>
-                <Link
-                  href="/"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <span className="text-gray-600 hover:text-green-600 text-sm">Emotional Resilience Sessions</span>
-                </Link>
-                <Link
-                  href="/services/breakup-recovery-support"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <span className="text-gray-600 hover:text-green-600 text-sm">Breakup Recovery Support</span>
-                </Link>
+              <div className="mt-2 ml-4 flex flex-col gap-2">
+                {[
+                  "1:1 Relationship Coaching",
+                  "Couples Communication Program",
+                  "Emotional Resilience Sessions",
+                  "Breakup Recovery Support",
+                  "Trauma Recovery & Emotional Healing",
+                ].map((item, i) => (
+                  <p key={i} className="text-sm text-gray-600 hover:text-green-600">
+                    {item}
+                  </p>
+                ))}
               </div>
             </details>
 
@@ -418,10 +379,9 @@ export default function Header() {
               <p className="py-2 text-gray-700 hover:text-green-600">Contact</p>
             </Link>
 
-            
             <a
               href="tel:2068886959"
-              className="bg-green-100 text-green-700 rounded-full px-4 py-2 text-center mt-2 block font-semibold"
+              className="bg-green-100 text-green-700 rounded-full px-4 py-2 mt-2 block text-center font-semibold"
             >
               📞 206-888-6959
             </a>
@@ -431,6 +391,3 @@ export default function Header() {
     </header>
   );
 }
-
-
-

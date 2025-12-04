@@ -176,12 +176,15 @@ export default function Services() {
       bg: healBG,
     },
 
+    
+
      {
-      title: "Emotional Resilience Sessions",
-      desc: "For individuals navigating emotional overwhelm or self-doubt — these sessions focus on grounding, confidence, and mindful responses.",
-      button: "Book a Session",
+      title: "Trauma Recovery & Emotional Healing",
+      desc: "Heal from past emotional wounds and break free from limiting patterns. Our trauma-focused sessions provide a safe space to process experiences, release pain, and rebuild inner strength.",
+      button: "Learn More",
       bg: shieldBG,
     },
+
 
      {
       title: "Emotional Resilience Sessions",

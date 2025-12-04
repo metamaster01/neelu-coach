@@ -129,7 +129,7 @@ export default function AboutMe() {
               whileHover={{ scale: 1.07 }}
               className="bg-gradient-to-br from-green-50 to-white shadow rounded-xl py-6 flex flex-col items-center gap-2 cursor-pointer border border-green-100 transition"
             >
-              <h3 className="text-4xl md:text-5xl font-extrabold text-green-500">
+              <h3 className="text-4xl md:text-5xl font-extrabold text-[#5E936C]">
                 {counts[i]}+
               </h3>
               <p className="text-gray-600 text-xs md:text-sm text-center leading-snug">
