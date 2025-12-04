@@ -5,6 +5,7 @@ import MessageSection from "@/components/MessageSection"
 import Help from "@/components/help"
 import Services from "@/components/services";
 import AboutMe from "@/components/aboutme";
+import Deserve from "@/components/Deserve";
 import Emotional from "@/components/emotional"; 
 import ChildHealing from "@/components/ChildHealing";
 import HowItWorks from "@/components/howitworks";
@@ -28,6 +29,7 @@ export default function Home() {
       <Help/>
       <Services/>
       <AboutMe/>
+      <Deserve/>
       <Emotional/>
       <ChildHealing/> 
       <HowItWorks/>
