@@ -154,25 +154,25 @@ export default function Services() {
     {
       title: "1:1 Relationship Coaching",
       desc: "Work privately with me to understand your patterns, shift limiting beliefs, and rebuild the foundation of your relationships — with yourself and your partner.",
-      button: "Book a 1:1 Call",
+      button: "Learn More",
       bg: heartBG,
     },
     {
       title: "Couples Communication Program",
       desc: "A guided journey for couples to move from arguments to understanding. Learn how to truly listen, express, and reconnect through proven conversation frameworks.",
-      button: "Start Your Program",
+      button: "Learn More",
       bg: chatBG,
     },
     {
       title: "Emotional Resilience Sessions",
       desc: "For individuals navigating emotional overwhelm or self-doubt — these sessions focus on grounding, confidence, and mindful responses.",
-      button: "Book a Session",
+      button: "Learn More",
       bg: shieldBG,
     },
     {
       title: "Breakup & Healing Guidance",
       desc: "Move through heartbreak with clarity and strength. Learn to release emotional pain, rebuild self-worth, and step into a grounded new chapter.",
-      button: "Begin Healing",
+      button: "Learn More",
       bg: healBG,
     },
 
@@ -189,7 +189,7 @@ export default function Services() {
      {
       title: "Emotional Resilience Sessions",
       desc: "For individuals navigating emotional overwhelm or self-doubt — these sessions focus on grounding, confidence, and mindful responses.",
-      button: "Book a Session",
+      button: "Learn More",
       bg: shieldBG,
     },
   ];
