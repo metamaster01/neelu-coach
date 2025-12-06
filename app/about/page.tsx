@@ -6,6 +6,7 @@ import  PhotoCarousel from "@/components/photo-carousel";
 import Mission from "@/components/mission";
 import Approach from "@/components/approach";
 import Author from "@/components/author";
+import Revive from "@/components/Rrevive";
 import Philosophy from "@/components/Philosophy";
 import FinalWords from "@/components/FinalWords";
 import Footer from "@/components/footer";
@@ -52,7 +53,8 @@ export default function AboutPage() {
 < PhotoCarousel/>
   <Mission/>   
   <Approach/>
-    <Author/>  
+    <Author/> 
+    <Revive/> 
     <Philosophy/>
     <FinalWords/>
     

@@ -148,6 +148,7 @@ import heartBG from "@/public/card-heart.png";
 import chatBG from "@/public/card-chat.png";
 import shieldBG from "@/public/card-shield.png";
 import healBG from "@/public/card-heal.png";
+import traumaBG from "@/public/trauma.png";
 
 export default function Services() {
   const services = [
@@ -182,7 +183,7 @@ export default function Services() {
       title: "Trauma Recovery & Emotional Healing",
       desc: "Heal from past emotional wounds and break free from limiting patterns. Our trauma-focused sessions provide a safe space to process experiences, release pain, and rebuild inner strength.",
       button: "Learn More",
-      bg: shieldBG,
+      bg: traumaBG,
     },
 
 
