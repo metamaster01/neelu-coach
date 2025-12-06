@@ -77,7 +77,7 @@ export default function Hero() {
             </a>
             <a
               href="#learn"
-              className="inline-flex items-center rounded-full border bg-gray-100 border-gray-300 px-5 py-3 text-sm sm:text-base text-black-500 hover:bg-green-400 transition"
+              className="inline-flex items-center rounded-full border bg-gray-100 border-gray-300 px-5 py-3 text-sm sm:text-base text-black hover:bg-green-400 transition"
             >
               Learn More
             </a>

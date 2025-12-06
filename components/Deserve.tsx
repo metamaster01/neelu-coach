@@ -49,7 +49,7 @@ export default function Deserve() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-[42px] md:text-[52px] font-semibold leading-tight tracking-tight mb-3"
+          className="text-[42px] md:text-[52px] font-semibold leading-tight tracking-tight mb-3 text-black"
         >
           You Deserve to Feel…
         </motion.h1>

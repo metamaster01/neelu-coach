@@ -6,7 +6,8 @@ import girlImg from "@/public/emotional.png";
 
 export default function Emotional() {
   return (
-    <section className="w-full bg-[#73AF6F] flex justify-center px-4 sm:px-6 md:px-10 lg:px-20 py-12 md:py-20 lg:py-24 mb-20 lg:mb-32 overflow-hidden">
+    <section className="w-full bg-gradient-to-b from-[#73AF6F] via-[#73AF6F] to-[#8BAE66] flex justify-center px-4 sm:px-6 md:px-10 lg:px-20 py-12 md:py-20 lg:py-24 overflow-hidden">
+
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}

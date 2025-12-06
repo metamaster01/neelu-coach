@@ -1,113 +1,139 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Image from "next/image"
+import React, { useMemo } from "react"
 
-export default function Home() {
-  const photos = [
-    "/images/pic1.png",
-    "/images/pic2.png",
-    "/images/pic3.png",
-    "/images/pic4.png",
-  ]
+type PhotoCarouselProps = {
+  photos: string[]
+  speedSeconds?: number // lower = faster
+  className?: string
+}
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [displayPhotos, setDisplayPhotos] = useState<string[]>([])
-
-  // Initialize displayPhotos once
-  useEffect(() => {
-    setDisplayPhotos(photos.slice(0, 4))
+export default function PhotoCarousel({
+  photos,
+  speedSeconds = 18,
+  className = "",
+}: PhotoCarouselProps) {
+  // Duplicate photos for seamless loop
+  const trackPhotos = useMemo(() => {
+    if (!photos?.length) return []
+    return [...photos, ...photos]
   }, [photos])
 
-  // Rotate photos from right to left
-  useEffect(() => {
-    if (photos.length === 0) return
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % photos.length)
-    }, 3000)
-
-    return () => clearInterval(interval)
-  }, [photos.length])
-
-  // Update display photos based on current index
-  useEffect(() => {
-    if (photos.length === 0) return
-
-    const newPhotos = []
-    for (let i = 0; i < 4; i++) {
-      newPhotos.push(photos[(currentIndex + i) % photos.length])
-    }
-    setDisplayPhotos(newPhotos)
-  }, [currentIndex, photos])
+  if (!photos?.length) return null
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-8 py-16">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-          {/* Left Section */}
-          <div className="flex-1">
-            <h1 className="text-6xl font-bold leading-tight mb-6">
-              Heal your heart.
-              <br />
-              Rebuild your connection.
-            </h1>
-            <p className="text-lg text-gray-700 mb-6">
-              Let's talk and begin your journey to a peaceful, loving relationship.
-            </p>
-            <a href="mailto:hello@neelutaneja.com" className="text-pink-500 hover:underline text-lg">
-              hello@neelutaneja.com
-            </a>
-          </div>
+    <section className={`w-full ${className}`}>
+      {/* Viewport */}
+      <div className="relative overflow-hidden">
+        {/* Track */}
+        <div
+          className="carousel-track group"
+          style={
+            {
+              "--marquee-duration": `${speedSeconds}s`,
+            } as React.CSSProperties
+          }
+        >
+          {trackPhotos.map((src, idx) => {
+            const patternIndex = idx % photos.length // keeps sizing stable per cycle
+            const isSmall = patternIndex === 0 || patternIndex === 2
 
-          {/* Right Section */}
-          <div className="flex-1 text-left md:text-right">
-            <h2 className="text-xl font-semibold mb-4">Main office</h2>
-            <p className="text-gray-700 mb-6 text-sm leading-relaxed">
-              Tower-17-002, Orchid Petals, Sohna Road,
-              <br />
-              Sector 49, Gurugram, Haryana 122018
-            </p>
-            <div className="flex justify-start md:justify-end gap-6">
-              <a href="#" className="text-pink-500 hover:underline font-semibold text-sm">
-                INSTAGRAM
-              </a>
-              <a href="#" className="text-pink-500 hover:underline font-semibold text-sm">
-                FACEBOOK
-              </a>
-              <a href="#" className="text-pink-500 hover:underline font-semibold text-sm">
-                YOUTUBE
-              </a>
-            </div>
-          </div>
+            return (
+              <div
+                key={`${src}-${idx}`}
+                className={[
+                  "carousel-card",
+                  isSmall ? "carousel-card--small" : "carousel-card--big",
+                ].join(" ")}
+              >
+                <Image
+                  src={src}
+                  alt={`Gallery photo ${patternIndex + 1}`}
+                  fill
+                  sizes={
+                    isSmall
+                      ? "(max-width: 768px) 70vw, 220px"
+                      : "(max-width: 768px) 80vw, 280px"
+                  }
+                  className="object-cover"
+                  priority={idx < 4}
+                />
+              </div>
+            )
+          })}
         </div>
+
+        {/* Fade edges (optional but looks pro) */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white to-transparent" />
       </div>
 
-      {/* Photo Gallery Carousel Section */}
-      <div className="max-w-7xl mx-auto px-8 py-12 flex justify-center gap-6 flex-wrap">
-        {displayPhotos.map((photo, idx) => {
-          const isSmall = idx === 0 || idx === 2
-          const width = isSmall ? 224 : 288
-          const height = isSmall ? 192 : 320
+      {/* Styles */}
+      <style jsx>{`
+        .carousel-track {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          width: max-content;
+          animation: marquee var(--marquee-duration) linear infinite;
+        }
 
-          return (
-            <div
-              key={idx}
-              className={`relative overflow-hidden rounded-2xl shadow-lg flex-shrink-0 transition-all duration-500`}
-              style={{ width, height }}
-            >
-              <Image
-                src={photo || "/placeholder.svg"}
-                alt={`Gallery photo ${idx + 1}`}
-                width={width}
-                height={height}
-                className="object-cover w-full h-full"
-              />
-            </div>
-          )
-        })}
-      </div>
-    </div>
+        /* Pause when hovering ANY card */
+        .carousel-track:hover {
+          animation-play-state: paused;
+        }
+
+        .carousel-card {
+          position: relative;
+          flex: 0 0 auto;
+          border-radius: 18px;
+          overflow: hidden;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+          transform-origin: center;
+          transition: transform 500ms ease, box-shadow 500ms ease;
+        }
+
+        /* subtle professional hover */
+        .carousel-card:hover {
+          transform: translateY(-6px) scale(1.02);
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Desktop sizes to match figma: small/big/small/big */
+        .carousel-card--small {
+          width: 224px;
+          height: 192px;
+        }
+        .carousel-card--big {
+          width: 288px;
+          height: 320px;
+        }
+
+        /* Mobile: one-by-one smaller + smoother */
+        @media (max-width: 768px) {
+          .carousel-track {
+            gap: 16px;
+            animation-duration: calc(var(--marquee-duration) * 1.15);
+          }
+          .carousel-card--small,
+          .carousel-card--big {
+            width: 75vw;
+            height: 52vw; /* responsive ratio */
+            max-width: 320px;
+            max-height: 240px;
+          }
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
+    </section>
   )
 }

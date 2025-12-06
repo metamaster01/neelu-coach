@@ -17,6 +17,7 @@ import Rebuild from "@/components/rebuild";
 import PhotoCarousel  from "@/components/photo-carousel"
 import RelationshipSection from "@/components/relationshipsection";
 import Footer from "@/components/footer";
+import CarouselLayout from "@/components/CarouselLayout";
 
 
 export default function Home() {
@@ -38,7 +39,7 @@ export default function Home() {
       <Investment/>
       <BeforeAfter/>
       <Rebuild/>
-      <PhotoCarousel/>
+      <CarouselLayout/>
       <RelationshipSection/>
       <Footer/>
 

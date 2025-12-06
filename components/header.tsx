@@ -221,7 +221,7 @@ export default function Header() {
   const [serviceOpen, setServiceOpen] = useState(false);
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-[99999] flex justify-center px-4">
+    <header className="fixed top-4 left-0 right-0 z-99999 flex justify-center px-4">
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
