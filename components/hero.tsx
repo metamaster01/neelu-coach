@@ -20,8 +20,8 @@ export default function Hero() {
         background: "linear-gradient(180deg, #5E936C, #FFFFFF, #FFFFFF)",
       }}
     >
-      {/*  Falling Red Hearts */}
-      <div className="absolute inset-0  overflow-hidden">
+      {/*  Falling  Hearts */}
+      {/* <div className="absolute inset-0  overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -36,7 +36,7 @@ export default function Hero() {
             💚
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-10">
 
