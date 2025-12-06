@@ -8,6 +8,8 @@ import Approach from "@/components/approach";
 import Author from "@/components/author";
 import Philosophy from "@/components/Philosophy";
 import FinalWords from "@/components/FinalWords";
+import Footer from "@/components/footer";
+import Rebuild from "@/components/rebuild";
 
 export default function AboutPage() {
   return (
@@ -53,6 +55,7 @@ export default function AboutPage() {
     <Author/>  
     <Philosophy/>
     <FinalWords/>
+    
     </main>
   );
 }
