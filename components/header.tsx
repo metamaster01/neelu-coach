@@ -278,32 +278,34 @@ export default function Header() {
             ></span>
 
             <AnimatePresence>
-              {serviceOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute left-0 mt-3 w-56 bg-white text-green-700 rounded-xl shadow-xl border border-green-100 z-[99999] py-2"
-                >
-                  {[
-                    "1:1 Relationship Coaching",
-                    "Couples Communication Program",
-                    "Emotional Resilience Sessions",
-                    "Breakup Recovery Support",
-                    "Trauma Recovery & Emotional Healing",
-                  ].map((item, i) => (
-                    <Link
-                      key={i}
-                      href="/services"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
-                    >
-                      {item}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+  {serviceOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -6 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -6 }}
+      transition={{ duration: 0.2 }}
+      className="absolute left-0 mt-3 w-56 bg-white text-green-700 rounded-xl shadow-xl border border-green-100 z-[99999] py-2"
+    >
+      {[
+        { title: "1:1 Relationship Coaching", link: "/services/Relationship-Coaching" },
+        { title: "Couples Communication Program", link: "/services/couples-communication" },
+        { title: "Emotional Resilience Sessions", link: "/services/emotional-resilience" },
+        { title: "Breakup Recovery Support", link: "/services/breakup-recovery" },
+        { title: "Trauma Recovery & Emotional Healing", link: "/services/trauma-healing" },
+      ].map((service, i) => (
+        <Link
+          key={i}
+          href={service.link}
+          className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
+          onClick={() => setServiceOpen(false)}
+        >
+          {service.title}
+        </Link>
+      ))}
+    </motion.div>
+  )}
+</AnimatePresence>
+
           </div>
 
           {/* contact */}
