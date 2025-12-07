@@ -5,6 +5,24 @@ import Image from "next/image"
 import { motion, Variants } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
+// FIX: static positions (no Math.random)
+const sparklePositions = [
+  { top: "10%", left: "20%" },
+  { top: "35%", left: "70%" },
+  { top: "55%", left: "40%" },
+  { top: "75%", left: "10%" },
+  { top: "90%", left: "80%" },
+]
+
+// FIX: Tailwind-safe static colors
+const sparkleColors = [
+  "text-pink-200",
+  "text-pink-300",
+  "text-pink-400",
+  "text-pink-500",
+  "text-pink-600",
+]
+
 export default function BeforeAfter() {
   const beforeItems = [
     "Constantly giving without receiving",
@@ -20,7 +38,6 @@ export default function BeforeAfter() {
     "Feeling whole, grounded, and safe in connection",
   ]
 
-  // Floating / parallax effect
   const floatVariants: Variants = {
     float: {
       y: [0, -10, 0],
@@ -67,7 +84,6 @@ export default function BeforeAfter() {
           </p>
         </motion.div>
 
-        {/* Cards */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Before Card */}
           <motion.div
@@ -77,15 +93,12 @@ export default function BeforeAfter() {
             initial="hidden"
             animate={inViewBefore ? "visible" : "hidden"}
           >
-            {/* Floating sparkles */}
-            {[...Array(5)].map((_, i) => (
+            {/* FIXED sparkles (no random) */}
+            {sparklePositions.map((pos, i) => (
               <motion.div
                 key={i}
-                className={`absolute w-3 h-3 text-pink-${200 + i * 50}`}
-                style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                }}
+                className={`absolute w-3 h-3 ${sparkleColors[i]}`}
+                style={{ top: pos.top, left: pos.left }}
                 variants={sparkleVariants}
                 animate="sparkle"
               >
@@ -93,7 +106,6 @@ export default function BeforeAfter() {
               </motion.div>
             ))}
 
-            {/* Illustration */}
             <motion.div
               className="flex justify-center mb-6"
               initial={{ scale: 0.9, opacity: 0 }}
@@ -101,27 +113,16 @@ export default function BeforeAfter() {
               transition={{ duration: 1, type: "spring", bounce: 0.3 }}
               whileHover={{ scale: 1.1, rotate: [-5, 5, -5] }}
             >
-              <motion.div
-                className="w-64 h-64 relative"
-                variants={floatVariants}
-                animate="float"
-              >
-                <Image
-                  src="/before.png"
-                  alt="Woman feeling stressed before coaching"
-                  fill
-                  className="object-contain"
-                />
+              <motion.div className="w-64 h-64 relative" variants={floatVariants} animate="float">
+                <Image src="/before.png" alt="Before coaching" fill className="object-contain" />
               </motion.div>
             </motion.div>
 
-            {/* Title */}
             <div className="flex items-center gap-2 mb-4">
-              <HeartCrack className="w-5 h-5 text-red-500 animate-pulse" />
+              <HeartCrack className="w-5 h-5 text-red-500" />
               <h3 className="text-xl font-semibold text-red-500">You Before Sessions</h3>
             </div>
 
-            {/* List */}
             <ul className="space-y-3">
               {beforeItems.map((item, index) => (
                 <motion.li
@@ -131,7 +132,7 @@ export default function BeforeAfter() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.2 }}
                 >
-                  <Heart className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0 fill-red-400 animate-bounce" />
+                  <Heart className="w-4 h-4 text-red-400 flex-shrink-0" />
                   <span className="text-gray-700 text-sm">{item}</span>
                 </motion.li>
               ))}
@@ -146,15 +147,11 @@ export default function BeforeAfter() {
             initial="hidden"
             animate={inViewAfter ? "visible" : "hidden"}
           >
-            {/* Floating sparkles */}
-            {[...Array(5)].map((_, i) => (
+            {sparklePositions.map((pos, i) => (
               <motion.div
                 key={i}
-                className={`absolute w-3 h-3 text-pink-${200 + i * 50}`}
-                style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                }}
+                className={`absolute w-3 h-3 ${sparkleColors[i]}`}
+                style={{ top: pos.top, left: pos.left }}
                 variants={sparkleVariants}
                 animate="sparkle"
               >
@@ -162,7 +159,6 @@ export default function BeforeAfter() {
               </motion.div>
             ))}
 
-            {/* Illustration */}
             <motion.div
               className="flex justify-center mb-6"
               initial={{ scale: 0.9, opacity: 0 }}
@@ -170,27 +166,16 @@ export default function BeforeAfter() {
               transition={{ duration: 1, type: "spring", bounce: 0.3 }}
               whileHover={{ scale: 1.1, rotate: [-5, 5, -5] }}
             >
-              <motion.div
-                className="w-64 h-64 relative"
-                variants={floatVariants}
-                animate="float"
-              >
-                <Image
-                  src="/after.png"
-                  alt="Woman feeling happy after coaching"
-                  fill
-                  className="object-contain"
-                />
+              <motion.div className="w-64 h-64 relative" variants={floatVariants} animate="float">
+                <Image src="/after.png" alt="After coaching" fill className="object-contain" />
               </motion.div>
             </motion.div>
 
-            {/* Title */}
             <div className="flex items-center gap-2 mb-4">
-              <Heart className="w-5 h-5 text-pink-500 fill-pink-500 animate-pulse" />
+              <Heart className="w-5 h-5 text-pink-500" />
               <h3 className="text-xl font-semibold text-pink-500">You After Sessions</h3>
             </div>
 
-            {/* List */}
             <ul className="space-y-3">
               {afterItems.map((item, index) => (
                 <motion.li
@@ -200,7 +185,7 @@ export default function BeforeAfter() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.2 }}
                 >
-                  <Heart className="w-4 h-4 text-pink-400 mt-0.5 flex-shrink-0 fill-pink-400 animate-bounce" />
+                  <Heart className="w-4 h-4 text-pink-400 flex-shrink-0" />
                   <span className="text-gray-700 text-sm">{item}</span>
                 </motion.li>
               ))}

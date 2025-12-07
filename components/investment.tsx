@@ -1,11 +1,32 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Podcast } from "lucide-react"
-import { motion } from "framer-motion"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Podcast } from "lucide-react";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Investment() {
+  const [floatingHearts, setFloatingHearts] = useState<any[]>([]);
+  const [explosionHearts, setExplosionHearts] = useState<any[]>([]);
+
+  useEffect(() => {
+    const f = [...Array(18)].map(() => ({
+      top: Math.random() * 100 + "%",
+      left: Math.random() * 100 + "%",
+      size: Math.random() * 18 + 12 + "px",
+      duration: 6 + Math.random() * 4,
+    }));
+    setFloatingHearts(f);
+
+    const e = [...Array(12)].map(() => ({
+      fontSize: 10 + Math.random() * 14 + "px",
+      x: (Math.random() - 0.5) * 200,
+      y: (Math.random() - 0.5) * 200,
+    }));
+    setExplosionHearts(e);
+  }, []);
+
   return (
     <section className="bg-[#faf6f3] py-16 px-4 md:px-8 overflow-hidden relative">
 
@@ -16,31 +37,33 @@ export default function Investment() {
           background: [
             "radial-gradient(circle at 20% 30%, #ffdad5, transparent 60%)",
             "radial-gradient(circle at 80% 60%, #ffd2e8, transparent 60%)",
-            "radial-gradient(circle at 50% 40%, #ffe5d0, transparent 60%)"
-          ]
+            "radial-gradient(circle at 50% 40%, #ffe5d0, transparent 60%)",
+          ],
         }}
-        transition={{ duration: 10, repeat: Infinity, repeatType: "mirror" }}
+        transition={{ duration: 10, repeat: Infinity, repeatType: "mirror", type: "keyframes" }}
       />
 
       {/* FLOATING HEARTS */}
       <div className="absolute inset-0 pointer-events-none -z-20">
-        {[...Array(18)].map((_, i) => (
+        {floatingHearts.map((h, i) => (
           <motion.div
             key={i}
             className="absolute text-rose-400/40 select-none"
             style={{
-              top: Math.random() * 100 + "%",
-              left: Math.random() * 100 + "%",
-              fontSize: Math.random() * 18 + 12 + "px"
+              top: h.top,
+              left: h.left,
+              fontSize: h.size,
             }}
             animate={{
               y: [0, -25, 0],
               opacity: [0.15, 0.4, 0.15],
-              rotate: [0, 8, -8, 0]
+              rotate: [0, 8, -8, 0],
             }}
             transition={{
-              duration: 6 + Math.random() * 4,
-              repeat: Infinity
+              duration: h.duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+              type: "keyframes"
             }}
           >
             ♥
@@ -48,14 +71,14 @@ export default function Investment() {
         ))}
       </div>
 
-      {/* SOFT COUPLE SILHOUETTE SHADOW */}
+      {/* SOFT COUPLE SILHOUETTE */}
       <div className="absolute bottom-0 left-0 right-0 mx-auto w-[600px] h-[350px] -z-10 opacity-20 bg-[url('/couple-silhouette.png')] bg-contain bg-no-repeat bg-center blur-xl" />
 
       {/* AMBIENT ROMANTIC PULSE */}
       <motion.div
         className="absolute w-[600px] h-[600px] bg-rose-300 rounded-full blur-[150px] top-10 left-1/2 -translate-x-1/2 -z-10 opacity-30"
         animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.45, 0.25] }}
-        transition={{ duration: 6, repeat: Infinity }}
+        transition={{ duration: 6, repeat: Infinity, type: "keyframes" }}
       />
 
       {/* SECTION FADE-IN */}
@@ -69,21 +92,20 @@ export default function Investment() {
           {/* HEADING */}
           <div className="text-center mb-12">
             <motion.h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4 text-balance">
-  {"Your Investment in Growth"
-    .split(" ")
-    .map((word, i) => (
-      <motion.span
-        key={i}
-        className="inline-block mr-2"  
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: i * 0.15 }}
-      >
-        {word}
-      </motion.span>
-    ))
-  }
-</motion.h2>
+              {"Your Investment in Growth"
+                .split(" ")
+                .map((word, i) => (
+                  <motion.span
+                    key={i}
+                    className="inline-block mr-2"
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.15 }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+            </motion.h2>
 
             <motion.div
               className="mx-auto w-32 h-1 bg-rose-300 rounded-full"
@@ -98,14 +120,14 @@ export default function Investment() {
               transition={{ duration: 0.7 }}
               className="text-muted-foreground max-w-2xl mx-auto mt-4"
             >
-              Every journey begins with one intentional step. Choose the program that best fits your goals — whether it’s rebuilding connection, improving communication, or healing within.
+              Every journey begins with one intentional step.
             </motion.p>
           </div>
 
           {/* MAIN LAYOUT */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
 
-            {/* IMAGE WITH HEART EXPLOSION */}
+            {/* IMAGE + EXPLOSION HEARTS */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -118,25 +140,27 @@ export default function Investment() {
                 transition={{ type: "spring", stiffness: 120 }}
                 className="rounded-2xl overflow-hidden relative group"
               >
-                {/* HEART EXPLOSION */}
-                {[...Array(12)].map((_, i) => (
+
+                {explosionHearts.map((h, i) => (
                   <motion.div
                     key={i}
                     className="absolute text-rose-500/70 opacity-0 pointer-events-none"
                     style={{
                       top: "50%",
                       left: "50%",
-                      fontSize: 10 + Math.random() * 14 + "px"
+                      fontSize: h.fontSize,
                     }}
                     animate={{
-                      x: [0, (Math.random() - 0.5) * 200],
-                      y: [0, (Math.random() - 0.5) * 200],
-                      opacity: [0, 1, 0]
+                      x: [0, h.x],
+                      y: [0, h.y],
+                      opacity: [0, 1, 0],
                     }}
                     transition={{
                       duration: 0.9,
                       repeat: Infinity,
                       repeatDelay: 2,
+                      ease: "easeInOut",
+                      type: "keyframes"
                     }}
                   >
                     ♥
@@ -147,7 +171,7 @@ export default function Investment() {
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
                   animate={{ x: ["-100%", "100%"] }}
-                  transition={{ duration: 2.3, repeat: Infinity, repeatDelay: 2 }}
+                  transition={{ duration: 2.3, repeat: Infinity, repeatDelay: 2, type: "keyframes" }}
                 />
 
                 <Image
@@ -196,18 +220,17 @@ export default function Investment() {
                 <p className="text-2xl font-semibold text-foreground">₹12,000 / month</p>
               </div>
 
-              {/* CTA WITH HANDWRITTEN LOVE STROKES */}
               <motion.div
                 className="relative"
                 whileHover={{ scale: 1.06 }}
                 animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 1.4, repeat: Infinity }}
+                transition={{ duration: 1.4, repeat: Infinity, type: "keyframes" }}
               >
-                {/* LOVE STROKES */}
+
                 <motion.div
                   className="absolute -top-5 -left-6 text-rose-400/50 text-xl select-none"
                   animate={{ rotate: [-6, 6, -6] }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", type: "keyframes" }}
                 >
                   ✦
                 </motion.div>
@@ -215,7 +238,7 @@ export default function Investment() {
                 <motion.div
                   className="absolute -bottom-5 -right-6 text-rose-400/50 text-xl select-none"
                   animate={{ rotate: [6, -6, 6] }}
-                  transition={{ duration: 3, repeat: Infinity }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", type: "keyframes" }}
                 >
                   ✦
                 </motion.div>
@@ -230,5 +253,5 @@ export default function Investment() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }
