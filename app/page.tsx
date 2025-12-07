@@ -14,7 +14,6 @@ import {Testimonial } from "@/components/testimonial";
 import Investment  from "@/components/investment";
 import BeforeAfter from "@/components/beforeafter";
 import Rebuild from "@/components/rebuild";
-import PhotoCarousel  from "@/components/photo-carousel"
 import RelationshipSection from "@/components/relationshipsection";
 import Footer from "@/components/footer";
 import CarouselLayout from "@/components/CarouselLayout";

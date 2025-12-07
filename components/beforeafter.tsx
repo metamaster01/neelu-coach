@@ -1,196 +1,68 @@
 "use client"
 
-import { Heart, HeartCrack, Sparkles } from "lucide-react"
-import Image from "next/image"
-import { motion, Variants } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-
-// FIX: static positions (no Math.random)
-const sparklePositions = [
-  { top: "10%", left: "20%" },
-  { top: "35%", left: "70%" },
-  { top: "55%", left: "40%" },
-  { top: "75%", left: "10%" },
-  { top: "90%", left: "80%" },
-]
-
-// FIX: Tailwind-safe static colors
-const sparkleColors = [
-  "text-pink-200",
-  "text-pink-300",
-  "text-pink-400",
-  "text-pink-500",
-  "text-pink-600",
-]
-
 export default function BeforeAfter() {
-  const beforeItems = [
+  const beforePoints = [
     "Constantly giving without receiving",
     "Silencing your needs to keep the peace",
     "Questioning your worth in love",
     "Feeling emotionally alone, even when partnered",
   ]
 
-  const afterItems = [
+  const afterPoints = [
     "Loving without losing yourself",
     "Trusting your needs, voice, and intuition",
     "Setting healthy boundaries without guilt",
     "Feeling whole, grounded, and safe in connection",
   ]
 
-  const floatVariants: Variants = {
-    float: {
-      y: [0, -10, 0],
-      x: [0, 5, -5, 0],
-      rotate: [0, 2, -2, 0],
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-    },
-  }
-
-  const fadeUpVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  }
-
-  const sparkleVariants: Variants = {
-    sparkle: {
-      scale: [0.8, 1.2, 1],
-      rotate: [0, 90, 0],
-      opacity: [0.5, 1, 0.5],
-      transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-    },
-  }
-
-  const [refBefore, inViewBefore] = useInView({ triggerOnce: true, threshold: 0.2 })
-  const [refAfter, inViewAfter] = useInView({ triggerOnce: true, threshold: 0.2 })
-
   return (
-    <section className="py-16 px-4 bg-background">
-      <div className="max-w-4xl mx-auto">
+    <section className="w-full py-16 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-            You Before & After Coaching
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            You <span className="text-red-600">Before</span> & <span className="text-green-600">After</span> Coaching
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Healing isn&apos;t about becoming someone new — it&apos;s about coming home to yourself.
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Healing isn't about becoming someone new — it's about coming home to yourself.
             <br />
-            Here&apos;s what changes when you start doing the inner work.
+            Here's what changes when you start doing the inner work.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Before and After Cards */}
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Before Card */}
-          <motion.div
-            ref={refBefore}
-            className="bg-pink-50 rounded-2xl p-6 relative overflow-hidden shadow-lg"
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate={inViewBefore ? "visible" : "hidden"}
-          >
-            {/* FIXED sparkles (no random) */}
-            {sparklePositions.map((pos, i) => (
-              <motion.div
-                key={i}
-                className={`absolute w-3 h-3 ${sparkleColors[i]}`}
-                style={{ top: pos.top, left: pos.left }}
-                variants={sparkleVariants}
-                animate="sparkle"
-              >
-                <Sparkles />
-              </motion.div>
-            ))}
-
-            <motion.div
-              className="flex justify-center mb-6"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1, type: "spring", bounce: 0.3 }}
-              whileHover={{ scale: 1.1, rotate: [-5, 5, -5] }}
-            >
-              <motion.div className="w-64 h-64 relative" variants={floatVariants} animate="float">
-                <Image src="/before.png" alt="Before coaching" fill className="object-contain" />
-              </motion.div>
-            </motion.div>
-
-            <div className="flex items-center gap-2 mb-4">
-              <HeartCrack className="w-5 h-5 text-red-500" />
-              <h3 className="text-xl font-semibold text-red-500">You Before Sessions</h3>
-            </div>
-
+          <div className="rounded-2xl p-8 md:p-10 bg-red-50 dark:bg-red-950/30">
+            <h3 className="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2">
+              <span>❤️</span>
+              You Before Sessions
+            </h3>
             <ul className="space-y-3">
-              {beforeItems.map((item, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-start gap-2"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.2 }}
-                >
-                  <Heart className="w-4 h-4 text-red-400 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">{item}</span>
-                </motion.li>
+              {beforePoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                  <span className="text-red-600 mt-0.5">♥</span>
+                  <span>{point}</span>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* After Card */}
-          <motion.div
-            ref={refAfter}
-            className="bg-pink-50 rounded-2xl p-6 relative overflow-hidden shadow-lg"
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate={inViewAfter ? "visible" : "hidden"}
-          >
-            {sparklePositions.map((pos, i) => (
-              <motion.div
-                key={i}
-                className={`absolute w-3 h-3 ${sparkleColors[i]}`}
-                style={{ top: pos.top, left: pos.left }}
-                variants={sparkleVariants}
-                animate="sparkle"
-              >
-                <Sparkles />
-              </motion.div>
-            ))}
-
-            <motion.div
-              className="flex justify-center mb-6"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1, type: "spring", bounce: 0.3 }}
-              whileHover={{ scale: 1.1, rotate: [-5, 5, -5] }}
-            >
-              <motion.div className="w-64 h-64 relative" variants={floatVariants} animate="float">
-                <Image src="/after.png" alt="After coaching" fill className="object-contain" />
-              </motion.div>
-            </motion.div>
-
-            <div className="flex items-center gap-2 mb-4">
-              <Heart className="w-5 h-5 text-pink-500" />
-              <h3 className="text-xl font-semibold text-pink-500">You After Sessions</h3>
-            </div>
-
+          <div className="rounded-2xl p-8 md:p-10 bg-green-50 dark:bg-green-950/30">
+            <h3 className="text-2xl font-bold text-green-600 mb-6 flex items-center gap-2">
+              <span>💚</span>
+              You After Sessions
+            </h3>
             <ul className="space-y-3">
-              {afterItems.map((item, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-start gap-2"
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.2 }}
-                >
-                  <Heart className="w-4 h-4 text-pink-400 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">{item}</span>
-                </motion.li>
+              {afterPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                  <span className="text-green-600 mt-0.5">♥</span>
+                  <span>{point}</span>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
