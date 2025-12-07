@@ -30,7 +30,8 @@ export default function CarouselLayout() {
 
             <a
               href="mailto:hello@neelutaneja.com"
-              className="text-pink-500 hover:underline text-base sm:text-lg font-medium"
+              style={{ color: "#5E936C" }}
+              className="hover:underline text-base sm:text-lg font-medium"
             >
               hello@neelutaneja.com
             </a>
@@ -49,13 +50,13 @@ export default function CarouselLayout() {
             </p>
 
             <div className="flex md:justify-end gap-6">
-              <a href="#" className="text-pink-500 hover:underline font-semibold text-xs sm:text-sm tracking-wide">
+              <a href="#" style={{ color: "#5E936C" }} className="hover:underline font-semibold text-xs sm:text-sm tracking-wide">
                 INSTAGRAM
               </a>
-              <a href="#" className="text-pink-500 hover:underline font-semibold text-xs sm:text-sm tracking-wide">
+              <a href="#" style={{ color: "#5E936C" }} className="hover:underline font-semibold text-xs sm:text-sm tracking-wide">
                 FACEBOOK
               </a>
-              <a href="#" className="text-pink-500 hover:underline font-semibold text-xs sm:text-sm tracking-wide">
+              <a href="#" style={{ color: "#5E936C" }} className="hover:underline font-semibold text-xs sm:text-sm tracking-wide">
                 YOUTUBE
               </a>
             </div>
