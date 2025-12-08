@@ -1,9 +1,18 @@
 "use client";
 
+import CarouselLayout from "@/components/CarouselLayout";
 import CoachingHelp from "@/components/CoachingHelp";
 import Discover from "@/components/Discover";
+import Footer from "@/components/footer";
 import HealConnection from "@/components/HealConnection";
 import HowItWorks from "@/components/howitworks";
+import Investment from "@/components/investment";
+import PhotoCarousel from "@/components/photo-carousel";
+import Rebuild from "@/components/rebuild";
+import RelationshipSection from "@/components/relationshipsection";
+
+import {Testimonial} from "@/components/ServiceTestimonal";
+import WatchStories from "@/components/watchstories";
 import WhoCoaching from "@/components/WhoConnection";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -32,7 +41,7 @@ export default function RelationshipCoaching() {
           flex items-center justify-center
         "
       >
-        {/* IMAGE */}
+        
         <Image
           src="/services/women.png" 
           alt="Relationship Coaching"
@@ -44,7 +53,7 @@ export default function RelationshipCoaching() {
         {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* TEXT OVER IMAGE */}
+        
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,12 +90,19 @@ export default function RelationshipCoaching() {
         </motion.div>
       </section>
 
-      {/* Add next sections below if needed */}
+      
       <HealConnection/>
       <WhoCoaching/>
       <Discover/>
       <CoachingHelp/>
       <HowItWorks/>
+      <Testimonial/>
+      <WatchStories/>
+      <Investment/>
+      <Rebuild/>
+      <CarouselLayout/>
+      <RelationshipSection/>
+      <Footer/>
     </main>
   );
 }
