@@ -358,7 +358,7 @@ export default function Header() {
               <p className="py-2 text-gray-700 hover:text-green-600">About</p>
             </Link>
 
-            <details>
+            {/* <details>
               <summary className="py-2 text-gray-700 hover:text-green-600 cursor-pointer">
                 Our Services
               </summary>
@@ -375,7 +375,35 @@ export default function Header() {
                   </p>
                 ))}
               </div>
-            </details>
+            </details> */}
+
+
+
+            <details>
+  <summary className="py-2 text-gray-700 hover:text-green-600 cursor-pointer">
+    Our Services
+  </summary>
+
+  <div className="mt-2 ml-4 flex flex-col gap-2">
+    {[
+      { title: "1:1 Relationship Coaching", link: "/services/Relationship-Coaching" },
+      { title: "Couples Communication Program", link: "/services/couples-communication" },
+      { title: "Emotional Resilience Sessions", link: "/services/emotional-resilience" },
+      { title: "Breakup Recovery Support", link: "/services/breakup-recovery" },
+      { title: "Trauma Recovery & Emotional Healing", link: "/services/trauma-healing" },
+    ].map((s, i) => (
+      <Link
+        key={i}
+        href={s.link}
+        onClick={() => setMenuOpen(false)}
+        className="text-sm text-gray-600 hover:text-green-600 transition"
+      >
+        {s.title}
+      </Link>
+    ))}
+  </div>
+</details>
+
 
             <Link href="/contact" onClick={() => setMenuOpen(false)}>
               <p className="py-2 text-gray-700 hover:text-green-600">Contact</p>

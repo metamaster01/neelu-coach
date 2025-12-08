@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import HealConnection from "@/components/HealConnection";
 import HowItWorks from "@/components/howitworks";
 import Investment from "@/components/investment";
-import PhotoCarousel from "@/components/photo-carousel";
+
 import Rebuild from "@/components/rebuild";
 import RelationshipSection from "@/components/relationshipsection";
 
