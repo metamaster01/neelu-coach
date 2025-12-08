@@ -76,6 +76,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
+import MeetCoach from "@/components/meetcoach";
 import PhotoCarousel from "@/components/photo-carousel";
 import Mission from "@/components/mission";
 import Approach from "@/components/approach";
@@ -87,7 +88,9 @@ import Rebuild from "@/components/rebuild";
 import Footer from "@/components/footer";
 
 // ===================== GLOBAL SCROLL ANIMATION WRAPPER =====================
-function AnimateSection({ children }: any) {
+import { PropsWithChildren } from "react";
+
+function AnimateSection({ children }: PropsWithChildren) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 60, rotateX: 12, scale: 0.98 }}
@@ -165,7 +168,8 @@ export default function AboutPage() {
       </section>
 
       {/* ================= ANIMATED SECTIONS ================= */}
-      <AnimateSection><PhotoCarousel /></AnimateSection>
+      <AnimateSection><MeetCoach /></AnimateSection>
+      <AnimateSection><PhotoCarousel photos={[]} /></AnimateSection>
       <AnimateSection><Mission /></AnimateSection>
       <AnimateSection><Approach /></AnimateSection>
       <AnimateSection><Author /></AnimateSection>
