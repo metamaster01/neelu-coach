@@ -1,7 +1,9 @@
 "use client";
 
+import CoachingHelp from "@/components/CoachingHelp";
 import Discover from "@/components/Discover";
 import HealConnection from "@/components/HealConnection";
+import HowItWorks from "@/components/howitworks";
 import WhoCoaching from "@/components/WhoConnection";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -83,6 +85,8 @@ export default function RelationshipCoaching() {
       <HealConnection/>
       <WhoCoaching/>
       <Discover/>
+      <CoachingHelp/>
+      <HowItWorks/>
     </main>
   );
 }

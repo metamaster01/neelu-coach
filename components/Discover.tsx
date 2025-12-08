@@ -53,7 +53,7 @@ export default function Discover() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.1 }}
-              whileHover={{ scale: 2.3 }}
+              whileHover={{ scale: 1.3 }}
               className="
                 bg-white rounded-2xl border border-[#CDE0D0]
                 text-left px-6 py-6 shadow-sm
