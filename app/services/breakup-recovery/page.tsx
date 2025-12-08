@@ -2,21 +2,24 @@
 
 import { useEffect } from "react";
 import CarouselLayout from "@/components/CarouselLayout";
-import CoachingHelp3 from "@/components/CoachingHelp3";
-import Discover3 from "@/components/Discover3";
+import CoachingHelp4 from "@/components/CoachingHelp4";
+import Discover4 from "@/components/Discover4";
 import Footer from "@/components/footer";
 import HowItWorks from "@/components/howitworks";
 import Investment from "@/components/investment";
-import NavigateEmotion from "@/components/navigate-emotion";
+import SelfWorth from "@/components/self-worth";
 import Rebuild from "@/components/rebuild";
 import RelationshipSection from "@/components/relationshipsection";
 import { Testimonial } from "@/components/ServiceTestimonal";
 import WatchStories from "@/components/watchstories";
-import WhoCoaching3 from "@/components/WhoConnection3";
+import WhoCoaching4 from "@/components/WhoConnection4";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function EmotionalResilience() {
+
+
+
+export default function Breakuprecovery() {
   /* ---------------------------------------------------------- */
   /* CURSOR HEART PARTICLES */
   /* ---------------------------------------------------------- */
@@ -44,7 +47,7 @@ export default function EmotionalResilience() {
     };
 
     const moveHandler = (e) => {
-      if (window.innerWidth < 768) return; // disable on mobile
+      if (window.innerWidth < 768) return; 
       createHeart(e.clientX, e.clientY);
     };
 
@@ -72,8 +75,8 @@ export default function EmotionalResilience() {
         "
       >
         <Image
-          src="/services/emotionalresilence.png"
-          alt="Emotional Resilience"
+          src="/services/breakuprecovery.png"
+          alt="Breakup Revovery"
           fill
           className="object-cover object-center"
           priority
@@ -102,7 +105,7 @@ export default function EmotionalResilience() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-3xl sm:text-4xl font-extrabold mt-6 gap-4 text-white"
           >
-            Emotional Resilience Sessions
+            Breakup Recovery Support
           </motion.h2>
 
           <motion.p
@@ -111,8 +114,7 @@ export default function EmotionalResilience() {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="max-w-xl mx-auto text-sm sm:text-base mt-3 opacity-40 leading-relaxed"
           >
-            Strengthen your inner peace. Reclaim emotional stability.
-            Rise above overwhelm with confidence.
+           Heal Your Heart. Reclaim Your Self-Worth. Move Forward With Strength.
           </motion.p>
         </motion.div>
       </section>
@@ -124,7 +126,7 @@ export default function EmotionalResilience() {
         viewport={{ amount: 0.1 }}
         transition={{ duration: 0.6 }}
       >
-        <NavigateEmotion />
+        <SelfWorth />
       </motion.div>
 
       <motion.div
@@ -133,15 +135,15 @@ export default function EmotionalResilience() {
         viewport={{ once: false, amount: 0.1 }}
         transition={{ duration: 0.6 }}
       >
-        <WhoCoaching3 />
+        <WhoCoaching4 />
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-        <Discover3 />
+        <Discover4 />
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-        <CoachingHelp3 />
+        <CoachingHelp4 />
       </motion.div>
 
       <HowItWorks />

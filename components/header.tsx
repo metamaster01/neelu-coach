@@ -146,28 +146,6 @@ export default function Header() {
             <Link href="/about" onClick={() => setMenuOpen(false)}>
               <p className="py-2 text-gray-700 hover:text-green-600">About</p>
             </Link>
-
-            {/* <details>
-              <summary className="py-2 text-gray-700 hover:text-green-600 cursor-pointer">
-                Our Services
-              </summary>
-              <div className="mt-2 ml-4 flex flex-col gap-2">
-                {[
-                  "1:1 Relationship Coaching",
-                  "Couples Communication Program",
-                  "Emotional Resilience Sessions",
-                  "Breakup Recovery Support",
-                  "Trauma Recovery & Emotional Healing",
-                ].map((item, i) => (
-                  <p key={i} className="text-sm text-gray-600 hover:text-green-600">
-                    {item}
-                  </p>
-                ))}
-              </div>
-            </details> */}
-
-
-
             <details>
   <summary className="py-2 text-gray-700 hover:text-green-600 cursor-pointer">
     Our Services
