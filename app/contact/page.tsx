@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Footer from "@/components/footer";
 
 export default function ContactPage() {
   return (
@@ -111,7 +112,7 @@ export default function ContactPage() {
         >
           <h3 className="text-gray-900 text-lg font-semibold">Contact Us</h3>
           <p className="text-gray-600 text-sm">
-            We're here to help you every step of the way. Contact us for
+            We&apos;re here to help you every step of the way. Contact us for
             guidance.
           </p>
 
@@ -154,6 +155,10 @@ export default function ContactPage() {
           </form>
         </motion.div>
       </section>
+
+      <footer className="w-full">
+        <Footer />
+      </footer>
     </main>
   );
 }
