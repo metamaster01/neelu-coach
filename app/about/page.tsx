@@ -87,7 +87,6 @@ import FinalWords from "@/components/FinalWords";
 import Rebuild from "@/components/rebuild";
 import Footer from "@/components/footer";
 
-// ===================== GLOBAL SCROLL ANIMATION WRAPPER =====================
 import { PropsWithChildren } from "react";
 
 function AnimateSection({ children }: PropsWithChildren) {
