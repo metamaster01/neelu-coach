@@ -21,12 +21,13 @@ export async function POST(req) {
       first_name: body.first_name || null,
       last_name: body.last_name || null,
       email: body.email,
+      phone: body.phone || null,
       subject: body.subject || null,
       message: body.message,
     };
 
     const { error } = await supabase
-      .from("contact-neelu") 
+      .from("contact-neelu")  // ✅ same as your table name
       .insert([payload]);
 
     if (error) {

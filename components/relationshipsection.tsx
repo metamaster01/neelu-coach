@@ -3,9 +3,11 @@
 // import { useState } from "react"
 // import { Plus } from "lucide-react"
 // import Image from "next/image"
+// import { useRouter } from "next/navigation"
 
 // export default function RelationshipSection() {
 //   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+//   const router = useRouter()
 
 //   const faqs = [
 //     {
@@ -49,7 +51,7 @@
 //       </section>
 
 //       {/* Promotion Section */}
-//       <section className="px-6 py-16 md:px-12 md:py-24" style={{ backgroundColor: "#EC407A" }}>
+//       <section className="px-6 py-16 md:px-12 md:py-24" style={{ backgroundColor: "#5E936C" }}>
 //         <div className="max-w-6xl mx-auto">
 //           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
@@ -77,7 +79,8 @@
 //               <div className="flex flex-col sm:flex-row gap-4 mb-6">
 //                 <button
 //                   className="bg-white font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition"
-//                   style={{ color: "#EC407A" }}
+//                   style={{ color: "#5E936C" }}
+//                   onClick={() => router.push("/contact")} // Navigate to contact page
 //                 >
 //                   Book A 1:1 Clarity Call
 //                 </button>
@@ -86,7 +89,7 @@
 //                   className="border-2 border-white text-white font-bold px-6 py-3 rounded-full transition"
 //                   onMouseEnter={(e) => {
 //                     e.currentTarget.style.backgroundColor = "#ffffff"
-//                     e.currentTarget.style.color = "#EC407A"
+//                     e.currentTarget.style.color = "#5E936C"
 //                   }}
 //                   onMouseLeave={(e) => {
 //                     e.currentTarget.style.backgroundColor = "transparent"
@@ -111,7 +114,7 @@
 //             {/* Left text */}
 //             <div>
 //               <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-//                 Begin your journey to <span style={{ color: "#EC407A" }}>deeper love and healing</span>.
+//                 Begin your journey to <span style={{ color: "#5E936C" }}>deeper love and healing</span>.
 //               </h2>
 
 //               <p className="text-gray-600 text-lg leading-relaxed">
@@ -159,7 +162,7 @@
 
 //               <button
 //                 className="w-full text-white font-bold py-3 rounded-full transition"
-//                 style={{ backgroundColor: "#EC407A" }}
+//                 style={{ backgroundColor: "#5E936C" }}
 //               >
 //                 Get Started
 //               </button>
@@ -173,6 +176,7 @@
 // }
 
 
+
 "use client"
 
 import { useState } from "react"
@@ -181,8 +185,12 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 export default function RelationshipSection() {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+  const [openFaqIndex, setOpenFaqIndex] = useState(null)
   const router = useRouter()
+
+  // ✅ contact form states
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState("")
 
   const faqs = [
     {
@@ -199,6 +207,51 @@ export default function RelationshipSection() {
         "Our approach is evidence-based and designed to address core relationship challenges. Many couples see significant improvements.",
     },
   ]
+
+  // ✅ submit handler for Contact Section
+  async function handleContactSubmit(e) {
+    e.preventDefault()
+    setLoading(true)
+    setStatus("")
+
+    const formData = new FormData(e.target)
+    const fullName = (formData.get("full_name") || "").toString().trim()
+
+    // split full name into first + last
+    const nameParts = fullName.split(" ")
+    const first_name = nameParts[0] || null
+    const last_name = nameParts.slice(1).join(" ") || null
+
+    const payload = {
+      first_name,
+      last_name,
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("service"),   // service -> subject
+      message: formData.get("message"),
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setStatus("❌ " + (data.error || "Something went wrong"))
+      } else {
+        setStatus("✅ Message sent!")
+        e.target.reset()
+      }
+    } catch (err) {
+      setStatus("❌ Network error, try again.")
+    }
+
+    setLoading(false)
+  }
 
   return (
     <div className="w-full">
@@ -255,7 +308,7 @@ export default function RelationshipSection() {
                 <button
                   className="bg-white font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition"
                   style={{ color: "#5E936C" }}
-                  onClick={() => router.push("/contact")} // Navigate to contact page
+                  onClick={() => router.push("/contact")}
                 >
                   Book A 1:1 Clarity Call
                 </button>
@@ -298,49 +351,65 @@ export default function RelationshipSection() {
               </p>
             </div>
 
-            {/* Form */}
+            {/* ✅ Form connected */}
             <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="space-y-4 mb-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Full name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
+              <form onSubmit={handleContactSubmit}>
+                <div className="space-y-4 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input
+                      name="full_name"
+                      type="text"
+                      placeholder="Full name"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                    />
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input
+                      name="phone"
+                      type="tel"
+                      placeholder="Phone number"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                    />
+                    <select
+                      name="service"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                    >
+                      <option value="">Service</option>
+                      <option value="Couples Therapy">Couples Therapy</option>
+                      <option value="Individual Counseling">Individual Counseling</option>
+                      <option value="Intensives">Intensives</option>
+                    </select>
+                  </div>
+
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    rows={4}
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="tel"
-                    placeholder="Phone number"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
-                  />
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
-                    <option>Service</option>
-                    <option>Couples Therapy</option>
-                    <option>Individual Counseling</option>
-                    <option>Intensives</option>
-                  </select>
-                </div>
+                <button
+                  disabled={loading}
+                  className="w-full text-white font-bold py-3 rounded-full transition disabled:opacity-60"
+                  style={{ backgroundColor: "#5E936C" }}
+                >
+                  {loading ? "Sending..." : "Get Started"}
+                </button>
 
-                <textarea
-                  placeholder="Message"
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
-                />
-              </div>
-
-              <button
-                className="w-full text-white font-bold py-3 rounded-full transition"
-                style={{ backgroundColor: "#5E936C" }}
-              >
-                Get Started
-              </button>
+                {status && <p className="text-sm mt-3">{status}</p>}
+              </form>
             </div>
 
           </div>
