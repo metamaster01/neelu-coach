@@ -12,11 +12,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+
+ html {
+  color-scheme: only light !important;
+  forced-color-adjust: none !important;
 }
 
 body {
@@ -33,3 +39,5 @@ header, nav, .navbar {
 .hero, section, div {
   pointer-events: auto;
 }
+
+

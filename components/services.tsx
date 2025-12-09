@@ -94,7 +94,7 @@ export default function Services() {
             {[...services, ...services].map((s, i) => (
               <motion.div
                 key={i}
-                className="min-w-[350px] relative p-7 bg-[#F8F8F8] border border-green-100 rounded-3xl
+                className="min-w-[350px] relative p-7 bg-[#F8F8F8] border border-green-100 rounded-3xl tetx-black
                 shadow-sm overflow-hidden hover:shadow-[0_8px_35px_rgba(143,237,136,0.35)]
                 hover:bg-[#6d9d7aff] hover:text-white transition-all duration-300 cursor-pointer"
               >

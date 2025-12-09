@@ -91,7 +91,7 @@ export default function BeforeAfter() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-10 text-base">
 
           {/* Before Card */}
           <motion.div
@@ -103,7 +103,7 @@ export default function BeforeAfter() {
               boxShadow: "0px 20px 50px rgba(255,0,0,0.25)",
             }}
             transition={{ type: "spring", stiffness: 180, damping: 12 }}
-            className="rounded-2xl p-8 md:p-12 bg-red-50 dark:bg-red-950/30 shadow-xl border border-red-200/40 dark:border-red-800/40"
+            className="rounded-2xl text-base p-8 md:p-12 bg-red-50 dark:bg-red-950/30 shadow-xl border border-red-200/40 dark:border-red-800/40"
           >
             <h3 className="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2">
               ❤️ You Before Sessions
@@ -119,7 +119,7 @@ export default function BeforeAfter() {
                 <motion.li
                   key={i}
                   variants={itemVariant}
-                  className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                  className="flex items-start gap-3 text-[#2E2E2E]"
                 >
                   <motion.span
                     initial={{ scale: 0 }}
@@ -145,7 +145,7 @@ export default function BeforeAfter() {
               boxShadow: "0px 20px 50px rgba(0,200,0,0.25)",
             }}
             transition={{ type: "spring", stiffness: 180, damping: 12 }}
-            className="rounded-2xl p-8 md:p-12 bg-green-50 dark:bg-green-950/30 shadow-xl border border-green-200/40 dark:border-green-800/40"
+            className=" text-[black] rounded-2xl p-8 md:p-12 bg-green-50 dark:bg-green-950/30 shadow-xl border border-green-200/40 dark:border-green-800/40"
           >
             <h3 className="text-2xl font-bold text-green-600 mb-6 flex items-center gap-2">
               💚 You After Sessions
@@ -161,7 +161,7 @@ export default function BeforeAfter() {
                 <motion.li
                   key={i}
                   variants={itemVariant}
-                  className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                  className="flex items-start gap-3 text-[#2E2E2E]"
                 >
                   <motion.span
                     initial={{ scale: 0 }}
