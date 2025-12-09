@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import Link from "next/link";
 export default function HealConnection() {
   return (
     <section className="w-full bg-[#3E5F46] py-6 sm:py-12 flex justify-center">
@@ -38,6 +38,7 @@ export default function HealConnection() {
         </motion.div>
 
         {/* CTA BUTTON */}
+        <Link href="/contact">
         <motion.button
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +51,7 @@ export default function HealConnection() {
         >
           Start Your Healing Together
         </motion.button>
-
+          </Link>
         {/* IMAGE SECTION */}
       <motion.div
   initial={{ opacity: 0, scale: 0.94 }}
