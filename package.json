@@ -11,6 +11,7 @@
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",
     "@react-three/drei": "^10.7.7",
+    "@supabase/supabase-js": "^2.87.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "i": "^0.3.7",
