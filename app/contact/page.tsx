@@ -169,7 +169,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Footer from "@/components/footer";
+<<<<<<< Updated upstream
 import { useState } from "react";
+=======
+>>>>>>> Stashed changes
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
