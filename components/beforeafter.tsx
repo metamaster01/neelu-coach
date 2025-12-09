@@ -1,10 +1,10 @@
 "use client";
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef } from "react";
 
 export default function BeforeAfter() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
 
   // Smooth parallax scroll
@@ -30,7 +30,8 @@ export default function BeforeAfter() {
     "Feeling whole, grounded, and safe in connection",
   ];
 
-  const containerVariant = {
+  // ✅ Explicitly type variants so ease doesn't widen to string
+  const containerVariant: Variants = {
     hidden: { opacity: 0, y: 60 },
     visible: {
       opacity: 1,
@@ -43,9 +44,13 @@ export default function BeforeAfter() {
     },
   };
 
-  const itemVariant = {
+  const itemVariant: Variants = {
     hidden: { opacity: 0, y: 25 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -57,12 +62,14 @@ export default function BeforeAfter() {
       <motion.div
         style={{ y: parallaxY, opacity: fade }}
         className="absolute left-10 top-10 text-red-400 text-5xl select-none"
+        aria-hidden
       >
         ♥
       </motion.div>
       <motion.div
         style={{ y: parallaxY, opacity: fade }}
         className="absolute right-10 top-20 text-green-400 text-5xl select-none"
+        aria-hidden
       >
         ♥
       </motion.div>
@@ -84,15 +91,15 @@ export default function BeforeAfter() {
             <span className="text-green-600">After</span> Coaching
           </motion.h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Healing isn't about becoming someone new — it's about returning to
-            who you already are.  
+            Healing isn&apos;t about becoming someone new — it&apos;s about returning to
+            who you already are.
+            <br />
             Here’s how your life expands when you start the inner work.
           </p>
         </motion.div>
 
         {/* Cards */}
         <div className="grid md:grid-cols-2 gap-10">
-
           {/* Before Card */}
           <motion.div
             variants={itemVariant}
@@ -126,6 +133,7 @@ export default function BeforeAfter() {
                     animate={isInView ? { scale: 1 } : {}}
                     transition={{ delay: i * 0.2, type: "spring" }}
                     className="text-red-600 text-lg mt-1"
+                    aria-hidden
                   >
                     ♥
                   </motion.span>
@@ -168,6 +176,7 @@ export default function BeforeAfter() {
                     animate={isInView ? { scale: 1 } : {}}
                     transition={{ delay: i * 0.2, type: "spring" }}
                     className="text-green-600 text-lg mt-1"
+                    aria-hidden
                   >
                     ♥
                   </motion.span>
@@ -176,7 +185,6 @@ export default function BeforeAfter() {
               ))}
             </motion.ul>
           </motion.div>
-
         </div>
       </motion.div>
     </section>
