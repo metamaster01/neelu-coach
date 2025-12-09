@@ -210,6 +210,12 @@
 // }
 
 
+
+
+
+
+//updated header with proper working for all devices
+
 "use client";
 
 import React, { useState } from "react";
