@@ -70,7 +70,7 @@ import { motion, type Variants } from "framer-motion";
 export default function CoachingHelp() {
   const items = [
     "Couples in conflict",
-    "Couples in conflict",
+    "Couples feeling emotionally distant",
     "Couples struggling with misunderstandings",
     "Married or long-term partners wanting to reconnect",
   ];
