@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 // "use client";
 
 // import { motion } from "framer-motion";
@@ -67,11 +66,6 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-=======
-"use client";
-
-import { motion } from "framer-motion";
->>>>>>> Stashed changes
 
 export default function CoachingHelp4() {
   const items = [
@@ -88,11 +82,7 @@ export default function CoachingHelp4() {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-<<<<<<< Updated upstream
   } satisfies Variants;
-=======
-  };
->>>>>>> Stashed changes
 
   return (
     <section className="w-full bg-[#6F9972] py-16 flex justify-center px-4">
