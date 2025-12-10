@@ -27,7 +27,7 @@ export async function POST(req) {
     };
 
     const { error } = await supabase
-      .from("contact-neelu")  // ✅ same as your table name
+      .from("contact-neelu") 
       .insert([payload]);
 
     if (error) {

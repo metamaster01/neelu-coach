@@ -10,21 +10,33 @@ export default function CoachingHelp() {
     "Married couples with communication issues",
   ];
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.08,
+      },
+    },
+  } satisfies Variants;
+
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 24, scale: 0.97 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      scale: 1,
+      transition: { duration: 0.55, ease: "easeOut" },
     },
   } satisfies Variants;
 
   return (
     <section className="w-full bg-[#6F9972] py-16 flex justify-center px-4">
       <motion.div
+        variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.25 }}
         className="w-full max-w-6xl flex flex-col items-center gap-12"
       >
         {/* HEADING */}
@@ -42,15 +54,18 @@ export default function CoachingHelp() {
               key={i}
               variants={cardVariants}
               whileHover={{
+                y: -5,
                 scale: 1.03,
-                boxShadow: "0 8px 25px rgba(255,255,255,0.25)",
-                transition: { duration: 0.25 },
+                boxShadow: "0 10px 26px rgba(0,0,0,0.12)",
+                transition: { type: "spring", stiffness: 250, damping: 18 },
               }}
+              whileTap={{ scale: 0.98 }}
               className="
-                bg-white text-center text-black rounded-2xl py-5 px-4 
+                bg-white text-black rounded-2xl py-5 px-4
                 shadow-sm cursor-pointer border border-gray-200
                 hover:bg-green-200 transition-all
-                text-[18px] sm:text-[17px] font-lg
+                text-[18px] sm:text-[17px] font-medium
+                flex items-center justify-center text-center
               "
             >
               {text}
