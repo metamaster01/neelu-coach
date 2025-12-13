@@ -392,7 +392,11 @@ export default function Hero() {
               </DialogContent>
             </Dialog>
 
-            <a className="rounded-full border bg-gray-100 border-gray-300 px-5 py-3 text-sm sm:text-base hover:bg-green-400 transition">
+            {/* ✅ Learn More -> /about */}
+            <a
+              href="/about"
+              className="rounded-full border bg-gray-100 border-gray-300 px-5 py-3 text-sm sm:text-base hover:bg-green-400 transition"
+            >
               Learn More
             </a>
           </div>
