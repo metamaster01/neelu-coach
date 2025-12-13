@@ -28,7 +28,7 @@ type FormState = {
   name: string;
   email: string;
   phone: string;
-  preferred_contact: "WhatsApp" | "Phone" | "Email";
+  preferred_contact: "WhatsApp Voice Call" | "Video Call" | "In Person";
   service_type: string;
   preferred_date: string; // YYYY-MM-DD
   preferred_time_slot: string;
@@ -48,7 +48,7 @@ export default function Revive() {
     name: "",
     email: "",
     phone: "",
-    preferred_contact: "WhatsApp",
+    preferred_contact: "WhatsApp Voice Call",
     service_type: "1:1 Relationship Coaching",
     preferred_date: "",
     preferred_time_slot: "10:00 AM - 11:00 AM",
@@ -72,7 +72,8 @@ export default function Revive() {
     setErrorMsg(null);
 
     try {
-      if (!form.consent) throw new Error("Consent is required to submit the request.");
+      if (!form.consent)
+        throw new Error("Consent is required to submit the request.");
 
       const res = await fetch("/api/counseling-request", {
         method: "POST",
@@ -87,10 +88,13 @@ export default function Revive() {
       const raw = await res.text();
 
       let data: any = null;
-      if (contentType.includes("application/json")) data = raw ? JSON.parse(raw) : null;
+      if (contentType.includes("application/json"))
+        data = raw ? JSON.parse(raw) : null;
 
       if (!res.ok) {
-        throw new Error(data?.error || `Request failed (${res.status}). ${raw.slice(0, 200)}`);
+        throw new Error(
+          data?.error || `Request failed (${res.status}). ${raw.slice(0, 200)}`
+        );
       }
 
       setSuccessMsg("✅ Request submitted! We’ll contact you shortly.");
@@ -137,10 +141,13 @@ export default function Revive() {
           </h2>
 
           <p className="text-black text-[21px] leading-relaxed">
-            Neelu Taneja created Relationship Revive so people can reflect, heal, and grow — anytime, anywhere.
+            Neelu Taneja created Relationship Revive so people can reflect, heal,
+            and grow — anytime, anywhere.
           </p>
 
-          <h3 className="text-black text-[15px] font-medium">Inside the app, you will find:</h3>
+          <h3 className="text-black text-[15px] font-medium">
+            Inside the app, you will find:
+          </h3>
           <ul className="list-disc pl-5 text-black text-[15px] space-y-4">
             <li>Daily healing lessons</li>
             <li>Guided emotional exercises</li>
@@ -195,7 +202,9 @@ export default function Revive() {
                         <Label className="text-[#1f2a22]">Name *</Label>
                         <Input
                           value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
+                          onChange={(e) =>
+                            setForm({ ...form, name: e.target.value })
+                          }
                           placeholder="Your full name"
                           className="bg-white border-[#5E936C]/25 focus-visible:ring-[#5E936C]/30"
                           required
@@ -206,7 +215,9 @@ export default function Revive() {
                         <Label className="text-[#1f2a22]">Phone *</Label>
                         <Input
                           value={form.phone}
-                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                          onChange={(e) =>
+                            setForm({ ...form, phone: e.target.value })
+                          }
                           placeholder="WhatsApp/Phone number"
                           className="bg-white border-[#5E936C]/25 focus-visible:ring-[#5E936C]/30"
                           required
@@ -217,7 +228,9 @@ export default function Revive() {
                         <Label className="text-[#1f2a22]">Email</Label>
                         <Input
                           value={form.email}
-                          onChange={(e) => setForm({ ...form, email: e.target.value })}
+                          onChange={(e) =>
+                            setForm({ ...form, email: e.target.value })
+                          }
                           placeholder="you@example.com"
                           className="bg-white border-[#5E936C]/25 focus-visible:ring-[#5E936C]/30"
                           type="email"
@@ -225,20 +238,28 @@ export default function Revive() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label className="text-[#1f2a22]">Preferred Contact *</Label>
+                        <Label className="text-[#1f2a22]">
+                          Preferred Contact *
+                        </Label>
                         <Select
                           value={form.preferred_contact}
                           onValueChange={(v) =>
-                            setForm({ ...form, preferred_contact: v as FormState["preferred_contact"] })
+                            setForm({
+                              ...form,
+                              preferred_contact:
+                                v as FormState["preferred_contact"],
+                            })
                           }
                         >
                           <SelectTrigger className="bg-white border-[#5E936C]/25 focus:ring-[#5E936C]/30">
                             <SelectValue placeholder="Choose..." />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="WhatsApp">WhatsApp</SelectItem>
-                            <SelectItem value="Phone">Phone</SelectItem>
-                            <SelectItem value="Email">Email</SelectItem>
+                            <SelectItem value="WhatsApp Voice Call">
+                              WhatsApp Voice Call
+                            </SelectItem>
+                            <SelectItem value="Video Call">Video Call</SelectItem>
+                            <SelectItem value="In Person">In Person</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -247,7 +268,9 @@ export default function Revive() {
                         <Label className="text-[#1f2a22]">Service Type *</Label>
                         <Select
                           value={form.service_type}
-                          onValueChange={(v) => setForm({ ...form, service_type: v })}
+                          onValueChange={(v) =>
+                            setForm({ ...form, service_type: v })
+                          }
                         >
                           <SelectTrigger className="bg-white border-[#5E936C]/25 focus:ring-[#5E936C]/30">
                             <SelectValue />
@@ -255,6 +278,18 @@ export default function Revive() {
                           <SelectContent>
                             <SelectItem value="1:1 Relationship Coaching">
                               1:1 Relationship Coaching
+                            </SelectItem>
+                            <SelectItem value="Couples Communication Program">
+                              Couples Communication Program
+                            </SelectItem>
+                            <SelectItem value="Emotional Resilience Sessions">
+                              Emotional Resilience Sessions
+                            </SelectItem>
+                            <SelectItem value="Breakup Recovery Support">
+                              Breakup Recovery Support
+                            </SelectItem>
+                            <SelectItem value="Trauma Recovery & Emotional Healing">
+                              Trauma Recovery & Emotional Healing
                             </SelectItem>
                           </SelectContent>
                         </Select>
@@ -264,7 +299,9 @@ export default function Revive() {
                         <Label className="text-[#1f2a22]">Language</Label>
                         <Select
                           value={form.language}
-                          onValueChange={(v) => setForm({ ...form, language: v })}
+                          onValueChange={(v) =>
+                            setForm({ ...form, language: v })
+                          }
                         >
                           <SelectTrigger className="bg-white border-[#5E936C]/25 focus:ring-[#5E936C]/30">
                             <SelectValue />
@@ -280,7 +317,12 @@ export default function Revive() {
                         <Label className="text-[#1f2a22]">Preferred Date *</Label>
                         <Input
                           value={form.preferred_date}
-                          onChange={(e) => setForm({ ...form, preferred_date: e.target.value })}
+                          onChange={(e) =>
+                            setForm({
+                              ...form,
+                              preferred_date: e.target.value,
+                            })
+                          }
                           className="bg-white border-[#5E936C]/25 focus-visible:ring-[#5E936C]/30"
                           type="date"
                           required
@@ -288,10 +330,14 @@ export default function Revive() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label className="text-[#1f2a22]">Preferred Time Slot *</Label>
+                        <Label className="text-[#1f2a22]">
+                          Preferred Time Slot *
+                        </Label>
                         <Select
                           value={form.preferred_time_slot}
-                          onValueChange={(v) => setForm({ ...form, preferred_time_slot: v })}
+                          onValueChange={(v) =>
+                            setForm({ ...form, preferred_time_slot: v })
+                          }
                         >
                           <SelectTrigger className="bg-white border-[#5E936C]/25 focus:ring-[#5E936C]/30">
                             <SelectValue />
@@ -318,7 +364,9 @@ export default function Revive() {
                       <Checkbox
                         className="data-[state=checked]:bg-[#5E936C] data-[state=checked]:border-[#5E936C]"
                         checked={form.consent}
-                        onCheckedChange={(v) => setForm({ ...form, consent: Boolean(v) })}
+                        onCheckedChange={(v) =>
+                          setForm({ ...form, consent: Boolean(v) })
+                        }
                       />
                       <p className="text-xs text-[#1f2a22]/70 leading-relaxed">
                         I consent to be contacted about this request. *
