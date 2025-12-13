@@ -28,7 +28,7 @@ type FormState = {
   name: string;
   email: string;
   phone: string;
-  preferred_contact: "WhatsApp" | "Phone" | "Email";
+  preferred_contact: "WhatsApp Voice Call" | "Video Call" | "In Person";
   service_type: string;
   preferred_date: string; // YYYY-MM-DD
   preferred_time_slot: string;
@@ -119,7 +119,7 @@ export default function RelationshipSection() {
     name: "",
     email: "",
     phone: "",
-    preferred_contact: "WhatsApp",
+    preferred_contact: "WhatsApp Voice Call",
     service_type: "1:1 Relationship Coaching",
     preferred_date: "",
     preferred_time_slot: "10:00 AM - 11:00 AM",
@@ -224,7 +224,12 @@ export default function RelationshipSection() {
             {/* Phone Mockup */}
             <div className="flex justify-center">
               <div className="relative w-64 h-96 bg-white rounded-3xl border-8 border-black shadow-2xl overflow-hidden">
-                <Image src="/revive.png" alt="mockup" fill className="object-cover" />
+                <Image
+                  src="/revive.png"
+                  alt="mockup"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
 
@@ -252,7 +257,7 @@ export default function RelationshipSection() {
                     </button>
                   </DialogTrigger>
 
-                  {/* ===== Responsive #5E936C Dialog ===== */}
+                 
                   <DialogContent
                     className="
                       w-[95vw] sm:w-full
@@ -274,7 +279,8 @@ export default function RelationshipSection() {
                           Book a Free Clarity Call
                         </DialogTitle>
                         <p className="text-[#1f2a22]/70 text-sm mt-1">
-                          Fill this out and we’ll reach you in your preferred way.
+                          Fill this out and we’ll reach you in your preferred
+                          way.
                         </p>
                       </DialogHeader>
 
@@ -337,9 +343,13 @@ export default function RelationshipSection() {
                                 <SelectValue placeholder="Choose..." />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="WhatsApp">WhatsApp</SelectItem>
-                                <SelectItem value="Phone">Phone</SelectItem>
-                                <SelectItem value="Email">Email</SelectItem>
+                                <SelectItem value="WhatsApp Voice Call">
+                                  WhatsApp Voice Call
+                                </SelectItem>
+                                <SelectItem value="Video Call">
+                                  Video Call
+                                </SelectItem>
+                                <SelectItem value="In Person">In Person</SelectItem>
                               </SelectContent>
                             </Select>
                           </div>
@@ -360,6 +370,18 @@ export default function RelationshipSection() {
                               <SelectContent>
                                 <SelectItem value="1:1 Relationship Coaching">
                                   1:1 Relationship Coaching
+                                </SelectItem>
+                                <SelectItem value="Couples Communication Program">
+                                  Couples Communication Program
+                                </SelectItem>
+                                <SelectItem value="Emotional Resilience Sessions">
+                                  Emotional Resilience Sessions
+                                </SelectItem>
+                                <SelectItem value="Breakup Recovery Support">
+                                  Breakup Recovery Support
+                                </SelectItem>
+                                <SelectItem value="Trauma Recovery & Emotional Healing">
+                                  Trauma Recovery & Emotional Healing
                                 </SelectItem>
                               </SelectContent>
                             </Select>
@@ -479,7 +501,6 @@ export default function RelationshipSection() {
                   </DialogContent>
                 </Dialog>
 
-                {/* Download app button (unchanged) */}
                 <button
                   className="border-2 border-white text-white font-bold px-6 py-3 rounded-full transition"
                   onMouseEnter={(e) => {
@@ -557,11 +578,21 @@ export default function RelationshipSection() {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
                     >
                       <option value="">Service</option>
-                      <option value="Couples Therapy">Couples Therapy</option>
-                      <option value="Individual Counseling">
-                        Individual Counseling
+                      <option value="1:1 Relationship Coaching">
+                        1:1 Relationship Coaching
                       </option>
-                      <option value="Intensives">Intensives</option>
+                      <option value="Couples Communication Program">
+                        Couples Communication Program
+                      </option>
+                      <option value="Emotional Resilience Sessions">
+                        Emotional Resilience Sessions
+                      </option>
+                      <option value="Breakup Recovery Support">
+                        Breakup Recovery Support
+                      </option>
+                      <option value="Trauma Recovery & Emotional Healing">
+                        Trauma Recovery & Emotional Healing
+                      </option>
                     </select>
                   </div>
 

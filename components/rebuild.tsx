@@ -32,7 +32,7 @@ type FormState = {
   name: string;
   email: string;
   phone: string;
-  preferred_contact: "WhatsApp" | "Phone" | "Email";
+  preferred_contact: "WhatsApp Voice Call" | "Video Call" | "In Person";
   service_type: string;
   preferred_date: string; // YYYY-MM-DD
   preferred_time_slot: string;
@@ -68,7 +68,7 @@ export default function Rebuild() {
     name: "",
     email: "",
     phone: "",
-    preferred_contact: "WhatsApp",
+    preferred_contact: "WhatsApp Voice Call",
     service_type: "1:1 Relationship Coaching",
     preferred_date: "",
     preferred_time_slot: "10:00 AM - 11:00 AM",
@@ -301,9 +301,11 @@ export default function Rebuild() {
                                 <SelectValue placeholder="Choose..." />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="WhatsApp">WhatsApp</SelectItem>
-                                <SelectItem value="Phone">Phone</SelectItem>
-                                <SelectItem value="Email">Email</SelectItem>
+                                <SelectItem value="WhatsApp Voice Call">
+                                  WhatsApp Voice Call
+                                </SelectItem>
+                                <SelectItem value="Video Call">Video Call</SelectItem>
+                                <SelectItem value="In Person">In Person</SelectItem>
                               </SelectContent>
                             </Select>
                           </div>
@@ -324,6 +326,18 @@ export default function Rebuild() {
                               <SelectContent>
                                 <SelectItem value="1:1 Relationship Coaching">
                                   1:1 Relationship Coaching
+                                </SelectItem>
+                                <SelectItem value="Couples Communication Program">
+                                  Couples Communication Program
+                                </SelectItem>
+                                <SelectItem value="Emotional Resilience Sessions">
+                                  Emotional Resilience Sessions
+                                </SelectItem>
+                                <SelectItem value="Breakup Recovery Support">
+                                  Breakup Recovery Support
+                                </SelectItem>
+                                <SelectItem value="Trauma Recovery & Emotional Healing">
+                                  Trauma Recovery & Emotional Healing
                                 </SelectItem>
                               </SelectContent>
                             </Select>
