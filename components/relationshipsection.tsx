@@ -216,19 +216,34 @@ export default function RelationshipSection() {
 
       {/* Promotion Section */}
       <section
-        className="px-6 py-16 md:px-12 md:py-24"
+        className="relative px-6 py-2 md:px-12 md:py-12 bg-[#5E936C] overflow-hidden"
         style={{ backgroundColor: "#5E936C" }}
       >
+
+        {/* DOODLES LEFT */}
+        <img
+          src="card-heart.png"
+          className="hidden md:block absolute left-0 top-2  w-100 opacity-80"
+          alt=""
+        />
+
+        {/* DOODLES RIGHT */}
+        <img
+          src="card-heal.png"
+          className="hidden md:block absolute right-0 bottom-4  w-120 opacity-60"
+          alt=""
+        />
+
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Phone Mockup */}
             <div className="flex justify-center">
-              <div className="relative w-64 h-96 bg-white rounded-3xl border-8 border-black shadow-2xl overflow-hidden">
+              <div className="relative top-12 left-0 w-[340] h-[400px]    shadow-xl overflow-hidden">
                 <Image
                   src="/revive.png"
                   alt="mockup"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top "
                 />
               </div>
             </div>
@@ -249,7 +264,7 @@ export default function RelationshipSection() {
                 <Dialog open={open} onOpenChange={setOpen}>
                   <DialogTrigger asChild>
                     <button
-                      className="bg-white font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition"
+                      className="bg-white font-bold px-6 py-3 rounded-full hover:bg-green-400 transition"
                       style={{ color: "#5E936C" }}
                       type="button"
                     >
@@ -501,7 +516,7 @@ export default function RelationshipSection() {
                   </DialogContent>
                 </Dialog>
 
-                <button
+                {/* <button
                   className="border-2 border-white text-white font-bold px-6 py-3 rounded-full transition"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "#ffffff";
@@ -514,7 +529,25 @@ export default function RelationshipSection() {
                   type="button"
                 >
                   Download the app
-                </button>
+                </button> */}
+
+                <a
+  href="https://play.google.com/store/apps/details?id=YOUR_APP_PACKAGE_NAME"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="border-2 border-white text-white font-bold px-6 py-3 rounded-full transition inline-block"
+  onMouseEnter={(e) => {
+    e.currentTarget.style.backgroundColor = "#ffffff";
+    e.currentTarget.style.color = "#5E936C";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.backgroundColor = "transparent";
+    e.currentTarget.style.color = "#ffffff";
+  }}
+>
+  Download the app
+</a>
+
               </div>
 
               <p className="text-sm opacity-90">
