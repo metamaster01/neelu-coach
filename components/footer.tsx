@@ -166,7 +166,7 @@ export default function Footer() {
         <div className="flex items-center gap-3 sm:gap-4 text-gray-800 text-xs sm:text-sm">
           <motion.a
             whileHover={{ y: -2 }}
-            href="#"
+            href="terms"
             className="hover:text-[#5E936C] transition"
           >
             Terms of Use
@@ -174,7 +174,7 @@ export default function Footer() {
           <span className="text-gray-400">|</span>
           <motion.a
             whileHover={{ y: -2 }}
-            href="#"
+            href="privacy"
             className="hover:text-[#5E936C] transition"
           >
             Privacy Policy
