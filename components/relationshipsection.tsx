@@ -531,22 +531,21 @@ export default function RelationshipSection() {
                   Download the app
                 </button> */}
 
-                <a
+               <a
   href="https://play.google.com/store/apps/details?id=YOUR_APP_PACKAGE_NAME"
   target="_blank"
   rel="noopener noreferrer"
-  className="border-2 border-white text-white font-bold px-6 py-3 rounded-full transition inline-block"
-  onMouseEnter={(e) => {
-    e.currentTarget.style.backgroundColor = "#ffffff";
-    e.currentTarget.style.color = "#5E936C";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.backgroundColor = "transparent";
-    e.currentTarget.style.color = "#ffffff";
-  }}
+  className="
+    relative z-50 pointer-events-auto
+    border-2 border-white text-white font-bold
+    px-6 py-3 rounded-full inline-block
+    transition-all duration-300
+    hover:bg-white hover:text-[#5E936C]
+  "
 >
   Download the app
 </a>
+
 
               </div>
 

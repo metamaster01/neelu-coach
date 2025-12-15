@@ -103,7 +103,7 @@ export default function AboutMe() {
 
             <a
               href="/about"
-              className="px-6 py-3 w-30 rounded-full bg-black text-white text-sm font-medium hover:bg-green-500 transition mx-auto md:mx-0"
+              className="px-4 py-3 w-30 rounded-full bg-black text-white text-sm font-medium hover:bg-green-500 transition mx-auto md:mx-0"
             >
               Know more
             </a>
