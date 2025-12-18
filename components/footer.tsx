@@ -14,6 +14,15 @@ export default function Footer() {
     }),
   };
 
+
+  const servicesLinks = [
+    { label: "1:1 Relationship Coaching", href: "/services/Relationship-Coaching" },
+    { label: "Couples Communication Program", href: "/services/couples-communication" },
+    { label: "Emotional Resilience Sessions", href: "/services/emotional-resilience" },
+    { label: "Breakup Recovery Support", href: "/services/breakup-recovery" },
+    { label: "Trauma Recovery & Emotional Healing", href: "/services/trauma-healing" },
+  ];
+
   return (
     <footer
       className="text-gray-900 px-6 sm:px-8 pt-14 sm:pt-16 pb-10"
@@ -74,7 +83,7 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Resources */}
+          {/* Services */}
           <motion.div
             variants={fadeUp}
             custom={2}
@@ -83,25 +92,21 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h3 className="font-bold text-gray-900 mb-4 text-base sm:text-lg">
-              Resources
+              Services
             </h3>
+
             <ul className="space-y-3">
-              {[
-                "Content Creation",
-                "Promotion and Marketing",
-                "Monetization",
-                "Legal and Copyright",
-              ].map((item) => (
+              {servicesLinks.map(({ label, href }) => (
                 <motion.li
                   whileHover={{ x: 6 }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  key={item}
+                  key={href}
                 >
                   <a
-                    href="#"
+                    href={href}
                     className="text-gray-800 hover:text-[#5E936C] transition text-sm sm:text-base"
                   >
-                    {item}
+                    {label}
                   </a>
                 </motion.li>
               ))}
@@ -166,7 +171,7 @@ export default function Footer() {
         <div className="flex items-center gap-3 sm:gap-4 text-gray-800 text-xs sm:text-sm">
           <motion.a
             whileHover={{ y: -2 }}
-            href="terms"
+            href="/terms"
             className="hover:text-[#5E936C] transition"
           >
             Terms of Use
@@ -174,7 +179,7 @@ export default function Footer() {
           <span className="text-gray-400">|</span>
           <motion.a
             whileHover={{ y: -2 }}
-            href="privacy"
+            href="/privacy"
             className="hover:text-[#5E936C] transition"
           >
             Privacy Policy
