@@ -14,7 +14,6 @@ export default function Footer() {
     }),
   };
 
-
   const servicesLinks = [
     { label: "1:1 Relationship Coaching", href: "/services/Relationship-Coaching" },
     { label: "Couples Communication Program", href: "/services/couples-communication" },
@@ -73,7 +72,7 @@ export default function Footer() {
                   key={item}
                 >
                   <a
-                    href="#"
+                    href={item === "About Us" ? "/about" : "#"}
                     className="text-gray-800 hover:text-[#5E936C] transition text-sm sm:text-base"
                   >
                     {item}
@@ -165,7 +164,13 @@ export default function Footer() {
         "
       >
         <p className="text-gray-800 text-xs sm:text-sm">
-          Copyright © {currentYear} neelutaneja
+          <a
+            href="https://metamaster.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Copyright © {currentYear} MetaMaster
+          </a>
         </p>
 
         <div className="flex items-center gap-3 sm:gap-4 text-gray-800 text-xs sm:text-sm">
