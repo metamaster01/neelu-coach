@@ -24,19 +24,22 @@ export default function Home() {
     <main className="min-h-screen bg-white overflow-x-hidden">
       
       <Hero/>
+      <AboutMe/>
        <Feeling/>
-      <MessageSection /> 
+      {/* <MessageSection />  */}
       <Help/>
       <Services/>
-      <AboutMe/>
+      
       <Deserve/>
-      <Emotional/>
+
+      {/* <Emotional/>
       <ChildHealing/> 
-      <HowItWorks/>
+      <HowItWorks/> */}
+
       <Podcast/>
       <Testimonial/>
-      <Investment/>
-      <BeforeAfter/>
+      {/* <Investment/> */}
+      {/* <BeforeAfter/> */}
       <Rebuild/>
       <CarouselLayout/>
       <RelationshipSection/>
