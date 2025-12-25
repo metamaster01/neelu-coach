@@ -63,8 +63,8 @@ export default function Services() {
 
   return (
     <section className="w-full flex justify-center py-20 px-4 bg-white">
-      {/* <div className="w-full max-w-[1440px] flex flex-col"> */}
-        <div
+      <div className="w-full max-w-[1440px] flex flex-col">
+        {/* <div
   className="
     overflow-hidden mt-12 mx-auto
     w-[875px]
@@ -73,7 +73,7 @@ export default function Services() {
     md:w-[875px]
     lg:w-[875px]
   "
->
+> */}
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -97,9 +97,9 @@ export default function Services() {
         </motion.p>
 
         {/* STEPWISE CAROUSEL */}
-        {/* <div className="overflow-hidden mt-12"> */}
+        <div className="overflow-hidden mt-12 w-[1114px] max-w-full mx-auto">
 
-        <div className="overflow-hidden mt-12 mx-auto w-[875px] max-w-full">
+           {/* <div className="overflow-hidden mt-12 mx-auto w-[875px] max-w-full"> */}
 
           <motion.div
             animate={{ x: -(index * (cardWidth + 32)) }}
